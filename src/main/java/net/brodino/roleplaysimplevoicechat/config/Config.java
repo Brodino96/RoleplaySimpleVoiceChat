@@ -1,8 +1,8 @@
-package net.brodino.simplevoicechatroleplay.config;
+package net.brodino.roleplaysimplevoicechat.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.brodino.simplevoicechatroleplay.SimpleVoicechatRoleplay;
+import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -18,7 +18,7 @@ public class Config {
     private ConfigType data;
 
     public Config() {
-        Path dataDirectory = Path.of("config/simplevoicechatroleplay");
+        Path dataDirectory = Path.of("config/roleplaysimplevoicechat");
 
         try {
             if (!Files.exists(dataDirectory)) {
@@ -27,7 +27,7 @@ public class Config {
             this.configPath = dataDirectory.resolve("config.json");
             this.load();
         } catch (IOException e) {
-            SimpleVoicechatRoleplay.LOGGER.error("Failed to load config.json!", e);
+            RoleplaySimpleVoicechat.LOGGER.error("Failed to load config.json!", e);
         }
     }
 
@@ -59,7 +59,7 @@ public class Config {
 
     private ConfigType getDefaults() {
         ConfigType defaults = new ConfigType();
-        defaults.extendedDistance = 1;
+        defaults.extendedDistance = 64;
         return defaults;
     }
 

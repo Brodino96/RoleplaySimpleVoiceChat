@@ -1,4 +1,4 @@
-package net.brodino.simplevoicechatroleplay.items;
+package net.brodino.roleplaysimplevoicechat.items;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class VoiceExtender extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.simplevoicechatroleplay.voice_extender.tooltip"));
+        tooltip.add(Text.translatable("item.roleplaysimplevoicechat.voice_extender.tooltip"));
     }
 
 

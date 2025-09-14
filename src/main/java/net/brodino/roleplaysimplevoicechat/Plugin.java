@@ -1,24 +1,23 @@
-package net.brodino.simplevoicechatroleplay;
+package net.brodino.roleplaysimplevoicechat;
 
 import de.maxhenkel.voicechat.api.VoicechatApi;
 import de.maxhenkel.voicechat.api.VoicechatConnection;
 import de.maxhenkel.voicechat.api.VoicechatPlugin;
 import de.maxhenkel.voicechat.api.events.EventRegistration;
 import de.maxhenkel.voicechat.api.events.VoiceDistanceEvent;
-import net.brodino.simplevoicechatroleplay.items.ItemManager;
-import net.minecraft.item.Items;
+import net.brodino.roleplaysimplevoicechat.items.ItemManager;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class Plugin implements VoicechatPlugin {
 
     @Override
     public String getPluginId() {
-        return SimpleVoicechatRoleplay.MOD_ID;
+        return RoleplaySimpleVoicechat.MOD_ID;
     }
 
     @Override
     public void initialize(VoicechatApi api) {
-        SimpleVoicechatRoleplay.LOGGER.info("Initializing plugin");
+        RoleplaySimpleVoicechat.LOGGER.info("Initializing plugin");
     }
 
     @Override
@@ -44,6 +43,6 @@ public class Plugin implements VoicechatPlugin {
             return;
         }
 
-        event.setDistance(SimpleVoicechatRoleplay.CONFIG.getExtendedDistance());
+        event.setDistance(RoleplaySimpleVoicechat.CONFIG.getExtendedDistance());
     }
 }

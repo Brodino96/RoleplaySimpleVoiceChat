@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "simplevoicechatroleplay",
+  "id": "roleplaysimplevoicechat",
   "version": "${version}",
-  "name": "SimpleVoicechatRoleplay",
+  "name": "RoleplaySimpleVoicechat",
   "description": "",
   "authors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/simplevoicechatroleplay/icon.png",
+  "icon": "assets/roleplaysimplevoicechat/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.brodino.simplevoicechatroleplay.client.SimpleVoicechatRoleplayClient"
+      "net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient"
     ],
     "main": [
-      "net.brodino.simplevoicechatroleplay.SimpleVoicechatRoleplay"
+      "net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat"
     ],
     "voicechat": [
-      "net.brodino.simplevoicechatroleplay.Plugin"
+      "net.brodino.roleplaysimplevoicechat.Plugin"
     ]
   },
   "mixins": [
-    "simplevoicechatroleplay.mixins.json"
+    "roleplaysimplevoicechat.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
