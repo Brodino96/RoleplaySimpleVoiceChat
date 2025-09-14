@@ -15,6 +15,9 @@
     ],
     "main": [
       "net.brodino.simplevoicechatroleplay.SimpleVoicechatRoleplay"
+    ],
+    "voicechat": [
+      "net.brodino.simplevoicechatroleplay.Plugin"
     ]
   },
   "mixins": [

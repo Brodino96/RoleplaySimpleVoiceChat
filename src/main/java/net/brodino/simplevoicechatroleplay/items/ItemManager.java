@@ -1,6 +1,6 @@
-package net.brodino.simplevoicechatroleplay;
+package net.brodino.simplevoicechatroleplay.items;
 
-import net.brodino.simplevoicechatroleplay.items.VoiceExtender;
+import net.brodino.simplevoicechatroleplay.SimpleVoicechatRoleplay;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
@@ -17,22 +17,6 @@ public class ItemManager {
 
     public static void initialize() {
         SimpleVoicechatRoleplay.LOGGER.info("Initializing Items");
-        ItemManager.VOICE_EXTENDER = ItemManager.register("voice_extender", new VoiceExtender(new Item.Settings()
-                .group(ItemGroup.TOOLS)
-                .rarity(Rarity.EPIC)
-                .maxCount(1)
-                .fireproof()
-                .maxDamage(0)
-        ));
-
-        /**
-         *         ItemManager.VOICE_EXTENDER = ItemManager.register("voice_extender", new Item(new Item.Settings()
-         *                 .group(ItemGroup.TOOLS)
-         *                 .rarity(Rarity.EPIC)
-         *                 .maxCount(1)
-         *                 .fireproof()
-         *                 .maxDamage(0)
-         *         ));
-         */
+        ItemManager.VOICE_EXTENDER = ItemManager.register("voice_extender", new VoiceExtender());
     }
 }
