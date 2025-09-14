@@ -5,6 +5,7 @@ import de.maxhenkel.voicechat.api.VoicechatConnection;
 import de.maxhenkel.voicechat.api.VoicechatPlugin;
 import de.maxhenkel.voicechat.api.events.EventRegistration;
 import de.maxhenkel.voicechat.api.events.VoiceDistanceEvent;
+import net.brodino.simplevoicechatroleplay.items.ItemManager;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 
@@ -39,7 +40,7 @@ public class Plugin implements VoicechatPlugin {
             return;
         }
 
-        if (!player.getMainHandStack().getItem().equals(Items.IRON_INGOT)) {
+        if (!player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
             return;
         }
 
