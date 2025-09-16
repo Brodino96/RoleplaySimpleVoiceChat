@@ -16,7 +16,17 @@
       }
     }
   ],
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "FapTobi_",
+      "curse": "https://www.curseforge.com/members/faptobi_/projects"
+    },
+    {
+      "name": "NormanNoone",
+      "homepage": "https://norman-noone.itch.io/",
+      "curse": "https://www.curseforge.com/members/norman_noone/projects"
+    }
+  ],
   "contact": {
     "homepage": "https://docs.brodino.dev/minecraft/roleplaysimplevoicechat",
     "sources": "https://github.com/Brodino96/RoleplaySimpleVoicechat",
