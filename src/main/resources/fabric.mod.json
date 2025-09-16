@@ -32,9 +32,6 @@
       "net.brodino.roleplaysimplevoicechat.Plugin"
     ]
   },
-  "mixins": [
-    "roleplaysimplevoicechat.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
