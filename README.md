@@ -1,30 +1,21 @@
-# Roleplay Simple Voicechat
+# RoleplaySimpleVoicechat
 
-A Fabric mod addon for Simple Voice Chat that adds useful roleplay-based features to Minecraft.
+An addon that expands the functionality of SimpleVoiceChat!
 
-## Features
+When adding this mod to your project you are supposed to edit locales and assets in a way that everything will fit your narrative universe!
 
-- **Resonant Shell**: An epic rarity item that amplifies your voice, greatly increasing its audible range when held.
+### Features:
 
-For installation and configuration instructions, see the [Documentation](https://docs.brodino.net/minecraft/roleplaysimplevoicechat).
+- **Voice extender**: An item that when held will amplify the range of your words
 
-## Dependencies
+For installation and configuration instructions, see the [Documentation](https://docs.brodino.dev/minecraft/roleplaysimplevoicechat).
 
-- Fabric
-- Simple Voice Chat
+### Planned features:
+- **Range cycle**: A bind to cycle between ranges (whisper, normal and shouting)
+- **Range preview**: An in-game preview of the range at which people will hear you
 
-## Links
 
-- [GitHub Repository](https://github.com/Brodino96/RoleplaySimpleVoicechat)
-- [Issues](https://github.com/Brodino96/RoleplaySimpleVoicechat/issues)
-- [Documentation](https://docs.brodino.dev/minecraft/roleplaysimplevoicechat)
-
-## Authors and Contributors
-
-- **Brodino** - Main developer
-- **FapTobi_** - Graphics
-- **NormanNoone** - Textures
-
-## License
-
-This mod is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt) for details.
+### Contributors
+- **Brodino**: Main developer
+- **FapTobi_**: Graphics
+- **NoormanNoone**: Textures
