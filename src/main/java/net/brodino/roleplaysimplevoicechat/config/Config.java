@@ -59,11 +59,11 @@ public class Config {
 
     private ConfigType getDefaults() {
         ConfigType defaults = new ConfigType();
-        defaults.extendedDistance = 64;
+        defaults.extendedVoiceDistance = 64;
         return defaults;
     }
 
     public int getExtendedDistance() {
-        return this.data.extendedDistance;
+        return this.data.extendedVoiceDistance;
     }
 }
