@@ -7,6 +7,6 @@ public class RoleplaySimpleVoiceChatClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        RoleplaySimpleVoiceChat.LOGGER.info("Initializing RoleplaySimpleVoicechat Client");
+        RoleplaySimpleVoiceChat.LOGGER.info("Initializing RoleplaySimpleVoiceChat Client");
     }
 }
