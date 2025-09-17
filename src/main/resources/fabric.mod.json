@@ -43,7 +43,7 @@
       "net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat"
     ],
     "voicechat": [
-      "net.brodino.roleplaysimplevoicechat.Plugin"
+      "net.brodino.roleplaysimplevoicechat.VoiceChatPlugin"
     ]
   },
   "depends": {

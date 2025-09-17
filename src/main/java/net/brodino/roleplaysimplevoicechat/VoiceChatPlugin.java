@@ -8,7 +8,7 @@ import de.maxhenkel.voicechat.api.events.VoiceDistanceEvent;
 import net.brodino.roleplaysimplevoicechat.items.ItemManager;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-public class Plugin implements VoicechatPlugin {
+public class VoiceChatPlugin implements VoicechatPlugin {
 
     @Override
     public String getPluginId() {
