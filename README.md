@@ -1,6 +1,6 @@
-# RoleplaySimpleVoicechat
+# Roleplay Simple Voice Chat
 
-An addon that expands the functionality of SimpleVoiceChat!
+An addon that expands the functionality of Simple Voice Chat!
 
 When adding this mod to your project you are supposed to edit locales and assets in a way that everything will fit your narrative universe!
 
