@@ -1,10 +1,13 @@
 package net.brodino.roleplaysimplevoicechat;
 
+import net.brodino.roleplaysimplevoicechat.commands.CommandHandler;
 import net.brodino.roleplaysimplevoicechat.config.Config;
 import net.brodino.roleplaysimplevoicechat.items.ItemManager;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 public class RoleplaySimpleVoicechat implements ModInitializer {
 
@@ -17,5 +20,16 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
         RoleplaySimpleVoicechat.LOGGER.info("Initializing RoleplaySimpleVoicechat!");
 
         ItemManager.initialize();
+        CommandHandler.initialize();
+    }
+
+    public static int reloadConfig() {
+        try {
+            RoleplaySimpleVoicechat.CONFIG.reload();
+            return 1;
+        } catch (IOException e) {
+            RoleplaySimpleVoicechat.LOGGER.error("Failed to reload config file: ", e);
+            return 0;
+        }
     }
 }
