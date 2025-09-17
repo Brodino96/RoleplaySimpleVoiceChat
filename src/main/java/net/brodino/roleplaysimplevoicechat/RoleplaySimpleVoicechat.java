@@ -9,15 +9,15 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-public class RoleplaySimpleVoicechat implements ModInitializer {
+public class RoleplaySimpleVoiceChat implements ModInitializer {
 
     public static final String MOD_ID = "roleplaysimplevoicechat";
-    public static final Logger LOGGER = LoggerFactory.getLogger(RoleplaySimpleVoicechat.MOD_ID);
+    public static final Logger LOGGER = LoggerFactory.getLogger(RoleplaySimpleVoiceChat.MOD_ID);
     public static final Config CONFIG = new Config();
 
     @Override
     public void onInitialize() {
-        RoleplaySimpleVoicechat.LOGGER.info("Initializing RoleplaySimpleVoicechat!");
+        RoleplaySimpleVoiceChat.LOGGER.info("Initializing RoleplaySimpleVoiceChat!");
 
         ItemManager.initialize();
         CommandHandler.initialize();
@@ -25,10 +25,10 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
 
     public static int reloadConfig() {
         try {
-            RoleplaySimpleVoicechat.CONFIG.reload();
+            RoleplaySimpleVoiceChat.CONFIG.reload();
             return 1;
         } catch (IOException e) {
-            RoleplaySimpleVoicechat.LOGGER.error("Failed to reload config file: ", e);
+            RoleplaySimpleVoiceChat.LOGGER.error("Failed to reload config file: ", e);
             return 0;
         }
     }
