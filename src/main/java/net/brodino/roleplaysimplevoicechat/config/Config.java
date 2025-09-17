@@ -2,7 +2,7 @@ package net.brodino.roleplaysimplevoicechat.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
+import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoiceChat;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -27,7 +27,7 @@ public class Config {
             this.configPath = dataDirectory.resolve("config.json");
             this.load();
         } catch (IOException e) {
-            RoleplaySimpleVoicechat.LOGGER.error("Failed to load config.json!", e);
+            RoleplaySimpleVoiceChat.LOGGER.error("Failed to load config.json!", e);
         }
     }
 

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "roleplaysimplevoicechat",
   "version": "${version}",
-  "name": "RoleplaySimpleVoicechat",
+  "name": "RoleplaySimpleVoiceChat",
   "description": "A Simple Voice Chat addon that adds useful roleplay based features",
   "authors": [
     {
@@ -29,18 +29,18 @@
   ],
   "contact": {
     "homepage": "https://docs.brodino.dev/minecraft/roleplaysimplevoicechat",
-    "sources": "https://github.com/Brodino96/RoleplaySimpleVoicechat",
-    "issues": "https://github.com/Brodino96/RoleplaySimpleVoicechat/issues"
+    "sources": "https://github.com/Brodino96/RoleplaySimpleVoiceChat",
+    "issues": "https://github.com/Brodino96/RoleplaySimpleVoiceChat/issues"
   },
   "license": "MIT",
   "icon": "assets/roleplaysimplevoicechat/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient"
+      "net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoiceChatClient"
     ],
     "main": [
-      "net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat"
+      "net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoiceChat"
     ],
     "voicechat": [
       "net.brodino.roleplaysimplevoicechat.VoiceChatPlugin"

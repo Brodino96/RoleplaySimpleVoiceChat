@@ -12,12 +12,12 @@ public class VoiceChatPlugin implements VoicechatPlugin {
 
     @Override
     public String getPluginId() {
-        return RoleplaySimpleVoicechat.MOD_ID;
+        return RoleplaySimpleVoiceChat.MOD_ID;
     }
 
     @Override
     public void initialize(VoicechatApi api) {
-        RoleplaySimpleVoicechat.LOGGER.info("Initializing plugin");
+        RoleplaySimpleVoiceChat.LOGGER.info("Initializing plugin");
     }
 
     @Override
@@ -43,6 +43,6 @@ public class VoiceChatPlugin implements VoicechatPlugin {
             return;
         }
 
-        event.setDistance(RoleplaySimpleVoicechat.CONFIG.getExtendedDistance());
+        event.setDistance(RoleplaySimpleVoiceChat.CONFIG.getExtendedDistance());
     }
 }
