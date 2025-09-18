@@ -8,7 +8,7 @@ When adding this mod to your project you are supposed to edit locales and assets
 
 - **Voice extender**: An item that when held will amplify the range of your words
 
-For installation and configuration instructions, see the [Documentation](https://docs.brodino.dev/minecraft/roleplaysimplevoicechat).
+For installation and configuration instructions, see the [Documentation](https://docs.brodino.dev/minecraft/roleplay-simple-voice-chat).
 
 ### Planned features:
 - **Range cycle**: A bind to cycle between ranges (whisper, normal and shouting)
