@@ -18,4 +18,4 @@ For installation and configuration instructions, see the [Documentation](https:/
 ### Contributors
 - **Brodino**: Main developer
 - **FapTobi_**: Graphics
-- **NoormanNoone**: Textures
+- **NormanNoone**: Textures
