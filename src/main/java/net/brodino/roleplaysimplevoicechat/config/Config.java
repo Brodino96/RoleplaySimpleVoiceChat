@@ -59,7 +59,8 @@ public class Config {
 
     private ConfigType getDefaults() {
         ConfigType defaults = new ConfigType();
-        defaults.extendedVoiceDistance = 64;
+        defaults.extendedVoiceDistance = 16;
+        defaults.sneakingVoiceDistance = 24;
         return defaults;
     }
 
