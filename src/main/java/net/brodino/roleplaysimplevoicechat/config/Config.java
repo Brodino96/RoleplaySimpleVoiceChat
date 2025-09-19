@@ -66,4 +66,8 @@ public class Config {
     public int getExtendedDistance() {
         return this.data.extendedVoiceDistance;
     }
+    public int getSneakingDistance() {
+        return  this.data.sneakingVoiceDistance;
+    }
+
 }

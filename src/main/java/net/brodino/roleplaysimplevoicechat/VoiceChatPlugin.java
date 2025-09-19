@@ -39,10 +39,16 @@ public class VoiceChatPlugin implements VoicechatPlugin {
             return;
         }
 
-        if (!player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
-            return;
+        float calculatedDistance = event.getDistance();
+
+        if (player.isSneaking()) {
+            calculatedDistance = RoleplaySimpleVoiceChat.CONFIG.getSneakingDistance();
         }
 
-        event.setDistance(RoleplaySimpleVoiceChat.CONFIG.getExtendedDistance());
+        if (player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
+            calculatedDistance = RoleplaySimpleVoiceChat.CONFIG.getExtendedDistance();
+        }
+
+        event.setDistance(calculatedDistance);
     }
 }
