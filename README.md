@@ -1,5 +1,7 @@
 # Roleplay Simple Voice Chat
 
+![mod_banner](https://github.com/Brodino96/RoleplaySimpleVoiceChat/blob/1.19.2/mod_banner.png)
+
 An addon that expands the functionality of Simple Voice Chat!
 
 When adding this mod to your project you are supposed to edit locales and assets in a way that everything will fit your narrative universe!
