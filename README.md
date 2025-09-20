@@ -9,6 +9,7 @@ When adding this mod to your project you are supposed to edit locales and assets
 ### Features:
 
 - **Voice extender**: An item that when held will amplify the range of your words
+- **Sneaking voice range**: A different voice range for when you sneak
 
 For installation and configuration instructions, see the [Documentation](https://docs.brodino.dev/minecraft/roleplay-simple-voice-chat).
 
