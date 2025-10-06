@@ -42,7 +42,7 @@ public class VoiceChatPlugin implements VoicechatPlugin {
         float calculatedDistance = event.getDistance();
 
         if (player.isSneaking()) {
-            calculatedDistance = RoleplaySimpleVoiceChat.CONFIG.getSneakingDistance();
+            calculatedDistance = (float) (event.getDistance() * RoleplaySimpleVoiceChat.CONFIG.getSneakingMultiplier());
         }
 
         if (player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {

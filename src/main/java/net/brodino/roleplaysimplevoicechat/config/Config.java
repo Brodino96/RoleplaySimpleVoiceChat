@@ -60,15 +60,15 @@ public class Config {
     private ConfigType getDefaults() {
         ConfigType defaults = new ConfigType();
         defaults.extendedVoiceDistance = 36;
-        defaults.sneakingVoiceDistance = 24;
+        defaults.sneakingVoiceMultiplier = 0.5;
         return defaults;
     }
 
     public int getExtendedDistance() {
         return this.data.extendedVoiceDistance;
     }
-    public int getSneakingDistance() {
-        return  this.data.sneakingVoiceDistance;
+    public double getSneakingMultiplier() {
+        return  this.data.sneakingVoiceMultiplier;
     }
 
 }
