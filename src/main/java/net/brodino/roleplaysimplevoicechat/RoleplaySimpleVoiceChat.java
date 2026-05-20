@@ -11,8 +11,7 @@ import org.slf4j.LoggerFactory;
 public class RoleplaySimpleVoiceChat implements ModInitializer {
 
     public static final String MOD_ID = "roleplaysimplevoicechat";
-    public static final Logger LOGGER = LoggerFactory.getLogger(RoleplaySimpleVoiceChat.MOD_ID);
-    public static final Config CONFIG = new Config();
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static final Config<ConfigType> CONFIG = new Config<>(MOD_ID, MOD_ID, ConfigType.class, ConfigType::new, LOGGER);
 
     @Override
