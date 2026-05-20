@@ -1,12 +1,8 @@
 package net.brodino.roleplaysimplevoicechat.commands;
 
-import com.mojang.brigadier.CommandDispatcher;
 import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoiceChat;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.command.CommandManager.RegistrationEnvironment;
 
 public class CommandHandler {
 
@@ -15,11 +11,7 @@ public class CommandHandler {
             RoleplaySimpleVoiceChat.reloadConfig();
         });
 
-        CommandRegistrationCallback.EVENT.register((
-                CommandDispatcher<ServerCommandSource> dispatcher,
-                CommandRegistryAccess registryAccess,
-                RegistrationEnvironment environment
-        ) -> {
+        CommandRegistrationCallback.EVENT.register((dispatcher, ra, e) -> {
             ReloadConfigCommand.register(dispatcher);
         });
     }
