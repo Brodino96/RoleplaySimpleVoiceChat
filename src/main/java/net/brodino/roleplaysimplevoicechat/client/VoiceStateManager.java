@@ -16,23 +16,12 @@ public class VoiceStateManager {
         return instance;
     }
 
-    public VoiceState getCurrentState() {
-        return currentState;
-    }
+    public VoiceState getCurrentState() { return currentState; }
+    public void cycleState() { currentState = currentState.next(); }
 
-    public void cycleState() {
-        currentState = currentState.next();
-    }
+    public void setClientApi(VoicechatClientApi api) { this.clientApi = api; }
 
-    public void setClientApi(VoicechatClientApi api) {
-        this.clientApi = api;
-    }
-
-    public boolean isTalking() {
-        return this.clientApi != null && this.clientApi.isTalking();
-    }
-
-    public boolean isMuted() {
-        return this.clientApi != null && this.clientApi.isMuted();
-    }
+    public boolean isTalking() { return this.clientApi != null && this.clientApi.isTalking(); }
+    public boolean isMuted() { return this.clientApi != null && this.clientApi.isMuted(); }
+    public boolean isDisabled() { return this.clientApi != null && this.clientApi.isDisabled(); }
 }

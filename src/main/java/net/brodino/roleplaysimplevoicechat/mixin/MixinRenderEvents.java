@@ -19,11 +19,25 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = RenderEvents.class, remap = false)
 public class MixinRenderEvents {
 
+    @Unique
+    private static final Identifier SPEAKER_OFF_ICON = new Identifier("voicechat", "textures/icons/speaker_off.png");
+
     @Inject(method = "onRenderHUD", at = @At("HEAD"), cancellable = true)
     private void onRenderHUD(MatrixStack stack, float tickDelta, CallbackInfo ci) {
-        VoiceStateManager manager = VoiceStateManager.getInstance();
-        VoiceState state = manager.getCurrentState();
+        if (VoicechatClient.CLIENT_CONFIG.hideIcons.get() || !VoicechatClient.CLIENT_CONFIG.showHudIcons.get()) {
+            ci.cancel();
+            return;
+        }
 
+        VoiceStateManager manager = VoiceStateManager.getInstance();
+
+        if (manager.isDisabled()) {
+            this.renderIcon(stack, SPEAKER_OFF_ICON);
+            ci.cancel();
+            return;
+        }
+
+        VoiceState state = manager.getCurrentState();
         Identifier texture;
         if (manager.isMuted()) {
             texture = state.getMutedTextureId();
