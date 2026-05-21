@@ -52,5 +52,8 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
     "voicechat": ">=${minecraft_version}-${voicechat_api_version}"
+  },
+  "breaks": {
+    "fabric": "${fabric_version_break}"
   }
 }

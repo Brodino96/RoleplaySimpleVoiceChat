@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'fabric-loom' version '1.15-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -40,8 +40,8 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modRuntimeOnly "maven.modrinth:simple-voice-chat:${project.voicechat_version}"
-    implementation "de.maxhenkel.voicechat:voicechat-api:${project.voicechat_api_version}"
+    modRuntimeOnly "maven.modrinth:simple-voice-chat:fabric-1.19.2-$voicechat_version"
+    implementation "de.maxhenkel.voicechat:voicechat-api:$voicechat_api_version"
 }
 
 processResources {
@@ -54,7 +54,8 @@ processResources {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version,
-                "voicechat_api_version": project.voicechat_api_version
+                "voicechat_api_version": project.voicechat_api_version,
+                "fabric_version_break": project.fabric_version_break
     }
 }
 
