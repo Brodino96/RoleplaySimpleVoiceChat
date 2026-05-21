@@ -10,9 +10,18 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(value = KeyEvents.class, remap = false)
 public class MixinKeyEvents {
 
-    // Blocks Simple Voice Chat from registering "Whisper" keybind
     @Redirect(method = "registerKeyBinds", remap = true, at = @At(value = "INVOKE", target = "Lde/maxhenkel/voicechat/intercompatibility/ClientCompatibilityManager;registerKeyBinding(Lnet/minecraft/client/option/KeyBinding;)Lnet/minecraft/client/option/KeyBinding;", ordinal = 1))
     private static KeyBinding skipWhisperKeybind(ClientCompatibilityManager manager, KeyBinding keyBinding) {
+        return keyBinding;
+    }
+
+    @Redirect(method = "registerKeyBinds", remap = true, at = @At(value = "INVOKE", target = "Lde/maxhenkel/voicechat/intercompatibility/ClientCompatibilityManager;registerKeyBinding(Lnet/minecraft/client/option/KeyBinding;)Lnet/minecraft/client/option/KeyBinding;", ordinal = 7))
+    private static KeyBinding skipGroupKeybind(ClientCompatibilityManager manager, KeyBinding keyBinding) {
+        return keyBinding;
+    }
+
+    @Redirect(method = "registerKeyBinds", remap = true, at = @At(value = "INVOKE", target = "Lde/maxhenkel/voicechat/intercompatibility/ClientCompatibilityManager;registerKeyBinding(Lnet/minecraft/client/option/KeyBinding;)Lnet/minecraft/client/option/KeyBinding;", ordinal = 9))
+    private static KeyBinding skipAdjustKeybind(ClientCompatibilityManager manager, KeyBinding keyBinding) {
         return keyBinding;
     }
 }
