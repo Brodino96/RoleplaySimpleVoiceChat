@@ -4,6 +4,9 @@ import de.maxhenkel.voicechat.gui.VoiceChatScreenBase;
 import de.maxhenkel.voicechat.gui.VoiceChatSettingsScreen;
 import de.maxhenkel.voicechat.gui.widgets.KeybindButton;
 import net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient;
+import net.minecraft.client.gui.Element;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.widget.ClickableWidget;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -31,19 +34,29 @@ public abstract class MixinVoiceChatSettingsScreen {
         int guiTop = base.getGuiTop();
         int xSize = accessor.getXSize();
 
-        this.roleplaysvc$cycleModeButton = new KeybindButton(
+        // Slot immediately below the PTT keybind button (guiTop+104, height 20)
+        int insertY = guiTop + 125;
+
+        // Push all widgets at or below the insertion point down one slot
+        for (Element element : ((Screen) (Object) this).children()) {
+            if (element instanceof ClickableWidget widget && widget.y >= insertY) {
+                widget.y += 21;
+            }
+        }
+
+        roleplaysvc$cycleModeButton = new KeybindButton(
             RoleplaySimpleVoicechatClient.cycleModeKey,
-            guiLeft + 7,
-            guiTop + 209,
-            xSize - 14,
+            guiLeft + 10,
+            insertY,
+            xSize - 20,
             20
         );
-        ((ScreenAccessor) (Object) this).invokeAddDrawableChild(this.roleplaysvc$cycleModeButton);
+        ((ScreenAccessor) (Object) this).invokeAddDrawableChild(roleplaysvc$cycleModeButton);
     }
 
     @Inject(method = "shouldCloseOnEsc", at = @At("HEAD"), cancellable = true, remap = true)
     private void blockEscWhenListening(CallbackInfoReturnable<Boolean> cir) {
-        if (this.roleplaysvc$cycleModeButton != null && this.roleplaysvc$cycleModeButton.isListening()) {
+        if (roleplaysvc$cycleModeButton != null && roleplaysvc$cycleModeButton.isListening()) {
             cir.setReturnValue(false);
         }
     }
