@@ -37,13 +37,14 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoiceChatClient"
+      "net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient"
     ],
     "main": [
-      "net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoiceChat"
+      "net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat"
     ],
     "voicechat": [
-      "net.brodino.roleplaysimplevoicechat.VoiceChatPlugin"
+      "net.brodino.roleplaysimplevoicechat.VoicechatPlugin",
+      "net.brodino.roleplaysimplevoicechat.client.VoicechatClientPlugin"
     ]
   },
   "depends": {
