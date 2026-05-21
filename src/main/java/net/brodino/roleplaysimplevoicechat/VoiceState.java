@@ -1,6 +1,5 @@
-package net.brodino.roleplaysimplevoicechat.client;
+package net.brodino.roleplaysimplevoicechat;
 
-import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoiceChat;
 import net.minecraft.util.Identifier;
 
 public enum VoiceState {
