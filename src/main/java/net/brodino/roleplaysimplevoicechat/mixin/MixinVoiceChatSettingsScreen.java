@@ -7,6 +7,7 @@ import net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ClickableWidget;
+import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -49,7 +50,8 @@ public abstract class MixinVoiceChatSettingsScreen {
             guiLeft + 10,
             insertY,
             xSize - 20,
-            20
+            20,
+            Text.translatable("key.roleplaysimplevoicechat.cycle_mode.button")
         );
         ((ScreenAccessor) (Object) this).invokeAddDrawableChild(roleplaysvc$cycleModeButton);
     }
