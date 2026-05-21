@@ -23,7 +23,7 @@ public abstract class MixinVoiceChatSettingsScreen {
     @Inject(method = "init", at = @At("HEAD"), remap = true)
     private void expandDialog(CallbackInfo ci) {
         VoiceChatScreenBaseAccessor accessor = (VoiceChatScreenBaseAccessor) (Object) this;
-        accessor.setYSize(accessor.getYSize() + 21);
+        accessor.setYSize(240);
     }
 
     @Inject(method = "init", at = @At("TAIL"), remap = true)
