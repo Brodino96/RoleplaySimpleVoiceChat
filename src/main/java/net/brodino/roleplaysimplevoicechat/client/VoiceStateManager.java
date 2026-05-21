@@ -31,4 +31,8 @@ public class VoiceStateManager {
     public boolean isTalking() {
         return this.clientApi != null && this.clientApi.isTalking();
     }
+
+    public boolean isMuted() {
+        return this.clientApi != null && this.clientApi.isMuted();
+    }
 }

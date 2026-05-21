@@ -9,14 +9,17 @@ public enum VoiceState {
 
     private final Identifier disabledTextureId;
     private final Identifier enabledTextureId;
+    private final Identifier mutedTextureId;
 
     VoiceState(String name) {
         this.disabledTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/hud/" + name + "_disabled.png");
         this.enabledTextureId  = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/hud/" + name + "_enabled.png");
+        this.mutedTextureId    = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/hud/" + name + "_muted.png");
     }
 
     public Identifier getDisabledTextureId() { return this.disabledTextureId; }
     public Identifier getEnabledTextureId()  { return this.enabledTextureId; }
+    public Identifier getMutedTextureId()    { return this.mutedTextureId; }
 
     /** Returns the next state in the carousel: WHISPER -> NORMAL -> SHOUTING -> WHISPER */
     public VoiceState next() {

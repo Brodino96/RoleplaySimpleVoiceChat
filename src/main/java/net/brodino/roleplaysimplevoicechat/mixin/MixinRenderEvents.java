@@ -23,10 +23,15 @@ public class MixinRenderEvents {
     private void onRenderHUD(MatrixStack stack, float tickDelta, CallbackInfo ci) {
         VoiceStateManager manager = VoiceStateManager.getInstance();
         VoiceState state = manager.getCurrentState();
-        boolean talking = manager.isTalking();
-        Identifier texture = talking
-            ? state.getEnabledTextureId()
-            : state.getDisabledTextureId();
+
+        Identifier texture;
+        if (manager.isMuted()) {
+            texture = state.getMutedTextureId();
+        } else if (manager.isTalking()) {
+            texture = state.getEnabledTextureId();
+        } else {
+            texture = state.getDisabledTextureId();
+        }
 
         this.renderIcon(stack, texture);
         ci.cancel();
