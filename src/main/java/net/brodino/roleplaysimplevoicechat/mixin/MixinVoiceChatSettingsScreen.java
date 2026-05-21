@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class MixinVoiceChatSettingsScreen {
 
     @Unique
-    private KeybindButton roleplaysvc$cycleModeButton;
+    private KeybindButton rpsvc$cycleModeButton;
 
     @Inject(method = "init", at = @At("HEAD"), remap = true)
     private void expandDialog(CallbackInfo ci) {
@@ -46,7 +46,7 @@ public abstract class MixinVoiceChatSettingsScreen {
             }
         }
 
-        roleplaysvc$cycleModeButton = new SavingKeybindButton(
+        rpsvc$cycleModeButton = new SavingKeybindButton(
             RoleplaySimpleVoicechatClient.cycleModeKey,
             guiLeft + 10,
             insertY,
@@ -54,12 +54,12 @@ public abstract class MixinVoiceChatSettingsScreen {
             20,
             Text.translatable("key.roleplaysimplevoicechat.cycle_mode.button")
         );
-        ((ScreenAccessor) (Object) this).invokeAddDrawableChild(roleplaysvc$cycleModeButton);
+        ((ScreenAccessor) (Object) this).invokeAddDrawableChild(rpsvc$cycleModeButton);
     }
 
     @Inject(method = "shouldCloseOnEsc", at = @At("HEAD"), cancellable = true, remap = true)
     private void blockEscWhenListening(CallbackInfoReturnable<Boolean> cir) {
-        if (roleplaysvc$cycleModeButton != null && roleplaysvc$cycleModeButton.isListening()) {
+        if (rpsvc$cycleModeButton != null && rpsvc$cycleModeButton.isListening()) {
             cir.setReturnValue(false);
         }
     }

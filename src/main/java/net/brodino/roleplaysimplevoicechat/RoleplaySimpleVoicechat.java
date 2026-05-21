@@ -44,7 +44,5 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
         });
     }
 
-    public static int reloadConfig() {
-        return RoleplaySimpleVoicechat.CONFIG.reload() ? 1 : 0;
-    }
+    public static int reloadConfig() { return RoleplaySimpleVoicechat.CONFIG.reload() ? 1 : 0; }
 }
