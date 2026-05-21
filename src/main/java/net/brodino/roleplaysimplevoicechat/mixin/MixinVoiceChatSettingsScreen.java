@@ -4,6 +4,7 @@ import de.maxhenkel.voicechat.gui.VoiceChatScreenBase;
 import de.maxhenkel.voicechat.gui.VoiceChatSettingsScreen;
 import de.maxhenkel.voicechat.gui.widgets.KeybindButton;
 import net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient;
+import net.brodino.roleplaysimplevoicechat.client.SavingKeybindButton;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ClickableWidget;
@@ -45,7 +46,7 @@ public abstract class MixinVoiceChatSettingsScreen {
             }
         }
 
-        roleplaysvc$cycleModeButton = new KeybindButton(
+        roleplaysvc$cycleModeButton = new SavingKeybindButton(
             RoleplaySimpleVoicechatClient.cycleModeKey,
             guiLeft + 10,
             insertY,
