@@ -53,6 +53,9 @@
     "minecraft": "${minecraft_version}",
     "voicechat": ">=${minecraft_version}-${voicechat_api_version}"
   },
+  "mixins": [
+    "roleplaysimplevoicechat.mixins.json"
+  ],
   "breaks": {
     "fabric": "${fabric_version_break}"
   }

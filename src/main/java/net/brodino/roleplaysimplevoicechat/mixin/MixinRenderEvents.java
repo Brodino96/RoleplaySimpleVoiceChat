@@ -1,0 +1,60 @@
+package net.brodino.roleplaysimplevoicechat.mixin;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+import de.maxhenkel.voicechat.VoicechatClient;
+import de.maxhenkel.voicechat.voice.client.RenderEvents;
+import net.brodino.roleplaysimplevoicechat.VoiceState;
+import net.brodino.roleplaysimplevoicechat.client.VoiceStateManager;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.render.GameRenderer;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.Identifier;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(value = RenderEvents.class, remap = false)
+public class MixinRenderEvents {
+
+    @Inject(method = "onRenderHUD", at = @At("HEAD"), cancellable = true)
+    private void onRenderHUD(MatrixStack stack, float tickDelta, CallbackInfo ci) {
+        VoiceStateManager manager = VoiceStateManager.getInstance();
+        VoiceState state = manager.getCurrentState();
+        boolean talking = manager.isTalking();
+        Identifier texture = talking
+            ? state.getEnabledTextureId()
+            : state.getDisabledTextureId();
+
+        this.renderIcon(stack, texture);
+        ci.cancel();
+    }
+
+    @Unique
+	private void renderIcon(MatrixStack matrixStack, Identifier texture) {
+        MinecraftClient minecraft = MinecraftClient.getInstance();
+        matrixStack.push();
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
+        RenderSystem.setShaderTexture(0, texture);
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
+
+        int posX = VoicechatClient.CLIENT_CONFIG.hudIconPosX.get();
+        int posY = VoicechatClient.CLIENT_CONFIG.hudIconPosY.get();
+
+        if (posX < 0) { matrixStack.translate(minecraft.getWindow().getScaledWidth(), 0D, 0D); }
+        if (posY < 0) { matrixStack.translate(0D, minecraft.getWindow().getScaledHeight(), 0D); }
+        matrixStack.translate(posX, posY, 0D);
+
+        float scale = VoicechatClient.CLIENT_CONFIG.hudIconScale.get().floatValue();
+        matrixStack.scale(scale, scale, 1F);
+
+        DrawableHelper.drawTexture(matrixStack, posX < 0 ? -16 : 0, posY < 0 ? -16 : 0, 0, 0, 16, 16, 16, 16);
+
+        RenderSystem.disableBlend();
+        matrixStack.pop();
+    }
+}

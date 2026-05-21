@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "net.brodino.roleplaysimplevoicechat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "MixinRenderEvents",
+    "MixinKeyEvents",
+    "MixinVoiceChatSettingsScreen",
+    "ScreenAccessor",
+    "VoiceChatScreenBaseAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
