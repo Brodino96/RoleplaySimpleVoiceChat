@@ -53,7 +53,7 @@ public class HudRenderMixin {
         VoiceStateManager manager = VoiceStateManager.getInstance();
         VoiceStates state = manager.getCurrentState();
 
-        if (manager.isMuted() && !manager.isPushToTalk()) {
+        if (manager.isMuted()) {
             return state.getSlashedTextureId();
         }
 
