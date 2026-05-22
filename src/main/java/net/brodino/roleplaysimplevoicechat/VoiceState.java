@@ -12,9 +12,9 @@ public enum VoiceState {
     private final Identifier mutedTextureId;
 
     VoiceState(String name) {
-        this.disabledTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/hud/" + name + "_disabled.png");
-        this.enabledTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/hud/" + name + "_enabled.png");
-        this.mutedTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/hud/" + name + "_muted.png");
+        this.disabledTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_disabled.png");
+        this.enabledTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_enabled.png");
+        this.mutedTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_muted.png");
     }
 
     public Identifier getDisabledTextureId() { return this.disabledTextureId; }
