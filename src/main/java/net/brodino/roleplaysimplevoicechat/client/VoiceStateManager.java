@@ -20,8 +20,8 @@ public class VoiceStateManager {
     }
 
     public boolean canCycleState(ClientPlayerEntity player) {
-        return !player.hasStatusEffect(EffectsManager.NEGATE_SPEECH)
-            && !player.hasStatusEffect(EffectsManager.EXTEND_SPEECH)
+        return !player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)
+            && !player.hasStatusEffect(EffectsManager.EXTENDED_SPEECH)
             && !player.isDead()
             && !this.isDisabled()
             && !this.isMuted();

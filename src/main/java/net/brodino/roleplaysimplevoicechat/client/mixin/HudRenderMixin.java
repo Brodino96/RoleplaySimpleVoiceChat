@@ -49,7 +49,7 @@ public class HudRenderMixin {
             return SPEAKER_OFF_ICON;
         }
 
-        if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATE_SPEECH)) {
+        if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)) {
             return SPEAKER_OFF_ICON;
         }
 
@@ -60,7 +60,7 @@ public class HudRenderMixin {
         }
 
         VoiceStates state;
-        if (player.hasStatusEffect(EffectsManager.EXTEND_SPEECH) || player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
+        if (player.hasStatusEffect(EffectsManager.EXTENDED_SPEECH) || player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
             state = VoiceStates.EXTENDED;
         } else {
             state = manager.getCurrentState();

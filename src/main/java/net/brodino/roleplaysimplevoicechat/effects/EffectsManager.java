@@ -8,12 +8,12 @@ import net.minecraft.util.registry.Registry;
 
 public class EffectsManager {
 
-	public static StatusEffect NEGATE_SPEECH = new NegateSpeechEffect(StatusEffectCategory.NEUTRAL, 1);
-	public static StatusEffect EXTEND_SPEECH = new ExtendSpeechEffect(StatusEffectCategory.NEUTRAL, 16755200);
+	public static StatusEffect EXTENDED_SPEECH = new ExtendedSpeechEffect(StatusEffectCategory.NEUTRAL, 16755200);
+	public static StatusEffect NEGATED_SPEECH = new NegatedSpeechEffect(StatusEffectCategory.NEUTRAL, 1);
 
 	public static void initialize() {
-		registerEffect("negate_speech", NEGATE_SPEECH);
-		registerEffect("amplify_speech", EXTEND_SPEECH);
+		registerEffect("extended_speech", EXTENDED_SPEECH);
+		registerEffect("negated_speech", NEGATED_SPEECH);
 	}
 
 	private static void registerEffect(String id, StatusEffect effect) {

@@ -34,7 +34,7 @@ public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlug
 
         ServerPlayerEntity player = (ServerPlayerEntity) (Object) connection.getPlayer().getPlayer();
 
-        if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATE_SPEECH)) {
+        if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)) {
             event.cancel();
         }
     }
@@ -42,7 +42,7 @@ public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlug
     private void onVoiceDistance(VoiceDistanceEvent event) {
         ServerPlayerEntity player = (ServerPlayerEntity) (Object) event.getSenderConnection().getPlayer().getPlayer();
 
-        if (player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER) || player.hasStatusEffect(EffectsManager.EXTEND_SPEECH)) {
+        if (player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER) || player.hasStatusEffect(EffectsManager.EXTENDED_SPEECH)) {
             event.setDistance(RoleplaySimpleVoicechat.CONFIG.getData().getExtendedDistance());
             return;
         }
