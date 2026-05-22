@@ -4,9 +4,11 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import de.maxhenkel.voicechat.VoicechatClient;
 import de.maxhenkel.voicechat.voice.client.RenderEvents;
 import net.brodino.roleplaysimplevoicechat.client.VoiceStateManager;
-import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
+import net.brodino.roleplaysimplevoicechat.effects.EffectsManager;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
@@ -24,6 +26,7 @@ public class HudRenderMixin {
     @Shadow
     @Final
     private MinecraftClient minecraft;
+
     @Unique
     private static final Identifier SPEAKER_OFF_ICON = new Identifier("voicechat", "textures/icons/speaker_off.png");
 
@@ -34,32 +37,31 @@ public class HudRenderMixin {
             return;
         }
 
-        if (this.minecraft.player != null && this.minecraft.player.isDead()) {
-            this.renderIcon(stack, SPEAKER_OFF_ICON);
-            ci.cancel();
-            return;
+        this.renderIcon(stack, this.getCurrentIcon());
+        ci.cancel();
+    }
+
+    @Unique
+    private Identifier getCurrentIcon() {
+        ClientPlayerEntity player = this.minecraft.player;
+        if (player != null) {
+            if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATE_SPEECH)) {
+                return SPEAKER_OFF_ICON;
+            }
         }
 
         VoiceStateManager manager = VoiceStateManager.getInstance();
+        VoiceStates state = manager.getCurrentState();
 
-        if (manager.isDisabled()) {
-            this.renderIcon(stack, SPEAKER_OFF_ICON);
-            ci.cancel();
-            return;
-        }
-
-        VoiceState state = manager.getCurrentState();
-        Identifier texture;
         if (manager.isMuted() && !manager.isPushToTalk()) {
-            texture = state.getMutedTextureId();
-        } else if (manager.isTalking()) {
-            texture = state.getEnabledTextureId();
-        } else {
-            texture = state.getDisabledTextureId();
+            return state.getSlashedTextureId();
         }
 
-        this.renderIcon(stack, texture);
-        ci.cancel();
+        if (manager.isTalking()) {
+            return state.getOnTextureId();
+        }
+
+        return state.getOffTextureId();
     }
 
     @Unique
