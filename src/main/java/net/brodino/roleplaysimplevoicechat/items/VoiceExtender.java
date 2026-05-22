@@ -24,7 +24,8 @@ public class VoiceExtender extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.roleplaysimplevoicechat.voice_extender.tooltip"));
+        tooltip.add(Text.translatable("item.roleplaysimplevoicechat.voice_extender.tooltip1"));
+        tooltip.add(Text.translatable("item.roleplaysimplevoicechat.voice_extender.tooltip2"));
     }
 
 

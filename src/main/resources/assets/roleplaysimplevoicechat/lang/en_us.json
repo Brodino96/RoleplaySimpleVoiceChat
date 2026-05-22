@@ -1,6 +1,8 @@
 {
   "item.roleplaysimplevoicechat.voice_extender": "Resonant Shell",
-  "item.roleplaysimplevoicechat.voice_extender.tooltip": "Holding this shell amplifies your voice, greatly increasing its audible range",
+  "item.roleplaysimplevoicechat.voice_extender.tooltip1": "A shell imbued with magic, holding it will",
+  "item.roleplaysimplevoicechat.voice_extender.tooltip2": "allow your voice to reach greater distances",
+
   "category.roleplaysimplevoicechat": "Roleplay Voice Chat",
   "key.roleplaysimplevoicechat.cycle_mode": "Cycle Voice Mode",
   "key.roleplaysimplevoicechat.cycle_mode.button": "Cycle Voice Mode"
