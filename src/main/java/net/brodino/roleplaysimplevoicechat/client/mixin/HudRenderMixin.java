@@ -5,6 +5,7 @@ import de.maxhenkel.voicechat.VoicechatClient;
 import de.maxhenkel.voicechat.voice.client.RenderEvents;
 import net.brodino.roleplaysimplevoicechat.client.VoiceStateManager;
 import net.brodino.roleplaysimplevoicechat.effects.EffectsManager;
+import net.brodino.roleplaysimplevoicechat.items.ItemManager;
 import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
@@ -44,14 +45,22 @@ public class HudRenderMixin {
     @Unique
     private Identifier getCurrentIcon() {
         ClientPlayerEntity player = this.minecraft.player;
-        if (player != null) {
-            if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATE_SPEECH)) {
-                return SPEAKER_OFF_ICON;
-            }
+        if (player == null) {
+            return SPEAKER_OFF_ICON;
+        }
+
+        if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATE_SPEECH)) {
+            return SPEAKER_OFF_ICON;
         }
 
         VoiceStateManager manager = VoiceStateManager.getInstance();
-        VoiceStates state = manager.getCurrentState();
+
+        VoiceStates state;
+        if (player.hasStatusEffect(EffectsManager.EXTEND_SPEECH) || player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
+            state = VoiceStates.EXTENDED;
+        } else {
+            state = manager.getCurrentState();
+        }
 
         if (manager.isMuted()) {
             return state.getSlashedTextureId();
