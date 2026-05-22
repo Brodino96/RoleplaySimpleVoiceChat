@@ -8,14 +8,12 @@ When adding this mod to your project you are supposed to edit locales and assets
 
 ### Features:
 
-- **Voice extender**: An item that when held will amplify the range of your words
-- **Sneaking voice range**: A different voice range for when you sneak
+- **Voice range cycling**: Cycle between voice ranges (e.g. whisper, normal, shout) via a customizable keybind
+- **Group menu disabled**: The Simple Voice Chat group menu is disabled
+- **Adjust volume menu disabled**: The Simple Voice Chat adjust volume menu is disabled
+- **Voice extender**: A custom item that, when held, forces a specific voice range
 
 For installation and configuration instructions, see the [Documentation](https://docs.brodino.dev/minecraft/roleplay-simple-voice-chat).
-
-### Planned features:
-- **Range cycle**: A bind to cycle between ranges (whisper, normal and shouting)
-- **Range preview**: An in-game preview of the range at which people will hear you
 
 
 ### Contributors
