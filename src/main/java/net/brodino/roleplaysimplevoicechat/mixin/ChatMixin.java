@@ -1,7 +1,6 @@
 package net.brodino.roleplaysimplevoicechat.mixin;
 
 import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
-import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.minecraft.network.message.MessageType;
 import net.minecraft.network.message.SignedMessage;
 import net.minecraft.network.message.SentMessage;
@@ -24,17 +23,10 @@ public class ChatMixin {
     private void onHandleDecoratedMessage(SignedMessage message, CallbackInfo ci) {
         ci.cancel();
 
-        VoiceStates state = RoleplaySimpleVoicechat.PLAYER_VOICE_STATES.getOrDefault(player.getUuid(), VoiceStates.NORMAL);
+        float distance = RoleplaySimpleVoicechat.getPlayerVoiceDistance(player);
 
-        float maxDist = switch (state) {
-            case WHISPER -> RoleplaySimpleVoicechat.CONFIG.getData().getWhisperDistance();
-            case NORMAL -> RoleplaySimpleVoicechat.CONFIG.getData().getNormalDistance();
-            case SHOUTING -> RoleplaySimpleVoicechat.CONFIG.getData().getShoutDistance();
-            case EXTENDED -> RoleplaySimpleVoicechat.CONFIG.getData().getExtendedDistance();
-        };
-
-        MessageType.Parameters params = MessageType.params(MessageType.CHAT, player);
-        MinecraftServer server = player.getServer();
+        MessageType.Parameters params = MessageType.params(MessageType.CHAT, this.player);
+        MinecraftServer server = this.player.getServer();
         if (server == null) {
             return;
         }
@@ -42,10 +34,10 @@ public class ChatMixin {
         server.logChatMessage(message.getContent(), params, message.headerSignature().isEmpty() ? "Not Secure" : null);
 
         SentMessage sent = SentMessage.of(message);
-        float distSq = maxDist * maxDist;
+        float distSq = distance * distance;
 
         for (ServerPlayerEntity recipient : server.getPlayerManager().getPlayerList()) {
-            if (recipient == player || (recipient.getWorld() == player.getWorld() && recipient.squaredDistanceTo(player) <= distSq)) {
+            if (recipient == this.player || (recipient.getWorld() == this.player.getWorld() && recipient.squaredDistanceTo(this.player) <= distSq)) {
                 recipient.sendChatMessage(sent, false, params);
             }
         }

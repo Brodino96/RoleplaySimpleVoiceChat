@@ -44,4 +44,21 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
     }
 
     public static int reloadConfig() { return RoleplaySimpleVoicechat.CONFIG.reload() ? 1 : 0; }
+
+    public static float getPlayerVoiceDistance(ServerPlayerEntity player) {
+        if (player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)) {
+            return 0.0F;
+        }
+
+        if (player.hasStatusEffect(EffectsManager.EXTENDED_SPEECH) || player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
+           return CONFIG.getData().getExtendedDistance();
+       }
+
+       return switch (RoleplaySimpleVoicechat.PLAYER_VOICE_STATES.getOrDefault(player.getUuid(), VoiceStates.NORMAL)) {
+           case WHISPER -> CONFIG.getData().getWhisperDistance();
+           case NORMAL -> CONFIG.getData().getNormalDistance();
+           case SHOUTING -> CONFIG.getData().getShoutDistance();
+           case EXTENDED -> CONFIG.getData().getExtendedDistance();
+       };
+    }
 }
