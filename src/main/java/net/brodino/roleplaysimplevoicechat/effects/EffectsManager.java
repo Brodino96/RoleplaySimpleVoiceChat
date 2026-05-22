@@ -9,7 +9,7 @@ import net.minecraft.util.registry.Registry;
 public class EffectsManager {
 
 	public static StatusEffect NEGATE_SPEECH = new NegateSpeechEffect(StatusEffectCategory.NEUTRAL, 1);
-	public static StatusEffect EXTEND_SPEECH = new ExtendSpeechEffect(StatusEffectCategory.NEUTRAL, 1);
+	public static StatusEffect EXTEND_SPEECH = new ExtendSpeechEffect(StatusEffectCategory.NEUTRAL, 16755200);
 
 	public static void initialize() {
 		registerEffect("negate_speech", NEGATE_SPEECH);
