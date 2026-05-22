@@ -53,6 +53,9 @@
     "minecraft": "${minecraft_version}",
     "voicechat": ">=${minecraft_version}-${voicechat_api_version}"
   },
+  "suggests": {
+    "jeed": "*"
+  },
   "mixins": [
     "roleplaysimplevoicechat.mixins.json"
   ],

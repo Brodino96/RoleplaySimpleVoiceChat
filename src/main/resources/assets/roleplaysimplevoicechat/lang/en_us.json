@@ -5,5 +5,10 @@
 
   "category.roleplaysimplevoicechat": "Roleplay Voice Chat",
   "key.roleplaysimplevoicechat.cycle_mode": "Cycle Voice Mode",
-  "key.roleplaysimplevoicechat.cycle_mode.button": "Cycle Voice Mode"
+  "key.roleplaysimplevoicechat.cycle_mode.button": "Cycle Voice Mode",
+
+  "effect.roleplaysimplevoicechat.extended_speech": "Extended Speech",
+  "effect.roleplaysimplevoicechat.extended_speech.description": "Magic fills your lungs, your voice can now reach greater distances",
+  "effect.roleplaysimplevoicechat.negated_speech": "Negated Speech",
+  "effect.roleplaysimplevoicechat.negated_speech.description": "A strange magic surrounds your neck, speaking is now impossible for you"
 }
