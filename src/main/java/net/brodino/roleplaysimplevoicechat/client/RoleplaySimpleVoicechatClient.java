@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -34,15 +35,19 @@ public class RoleplaySimpleVoicechatClient implements ClientModInitializer {
     }
 
     public static void tick(MinecraftClient client) {
-        if (client.player == null) {
+        ClientPlayerEntity player = client.player;
+        if (player == null) {
             return;
         }
 
         while (cycleModeKey.wasPressed()) {
             VoiceStateManager manager = VoiceStateManager.getInstance();
-            manager.cycleState();
 
-            VoiceState newState = manager.getCurrentState();
+            if (!manager.canCycleState(player)) {
+                return;
+            }
+
+            VoiceState newState = manager.cycleState();
             RoleplaySimpleVoicechat.LOGGER.debug("Voice mode cycled to {}", newState);
 
             var buf = PacketByteBufs.create();
