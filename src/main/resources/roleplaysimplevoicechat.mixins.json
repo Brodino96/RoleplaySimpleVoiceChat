@@ -3,6 +3,9 @@
   "package": "net.brodino.roleplaysimplevoicechat.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
+  "mixins": [
+    "ChatMixin"
+  ],
   "client": [
     "client.HudRenderMixin",
     "client.KeybindsRegistrationMixin",
