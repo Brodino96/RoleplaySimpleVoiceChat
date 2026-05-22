@@ -55,6 +55,10 @@ public class HudRenderMixin {
 
         VoiceStateManager manager = VoiceStateManager.getInstance();
 
+        if (manager.isDisabled()) {
+            return SPEAKER_OFF_ICON;
+        }
+
         VoiceStates state;
         if (player.hasStatusEffect(EffectsManager.EXTEND_SPEECH) || player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
             state = VoiceStates.EXTENDED;
