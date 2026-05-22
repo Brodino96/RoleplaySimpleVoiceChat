@@ -4,9 +4,9 @@ import net.brodino.roleplaysimplevoicechat.commands.CommandHandler;
 import net.brodino.roleplaysimplevoicechat.config.Config;
 import net.brodino.roleplaysimplevoicechat.config.ConfigType;
 import net.brodino.roleplaysimplevoicechat.items.ItemManager;
-import net.brodino.roleplaysimplevoicechat.network.VoiceStatePacket;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.network.ServerPlayerEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,20 +28,18 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
 
         ItemManager.initialize();
         CommandHandler.initialize();
-        this.registerPacketReceivers();
+        ServerEventHandler.initialize();
     }
 
-    private void registerPacketReceivers() {
-        ServerPlayNetworking.registerGlobalReceiver(VoiceStatePacket.CHANNEL, (s, player, handler, buf, rs) -> {
-            String stateName = buf.readString(32);
-            try {
-                VoiceState state = VoiceState.valueOf(stateName);
-                PLAYER_VOICE_STATES.put(player.getUuid(), state);
-                LOGGER.debug("Player {} set voice state to {}", player.getName().getString(), state);
-            } catch (IllegalArgumentException e) {
-                LOGGER.warn("Received invalid VoiceState '{}' from player {}", stateName, player.getName().getString());
-            }
-        });
+    public static void handleVoiceStateChange(ServerPlayerEntity player, PacketByteBuf buf) {
+        String stateName = buf.readString(32);
+        try {
+            VoiceState state = VoiceState.valueOf(stateName);
+            PLAYER_VOICE_STATES.put(player.getUuid(), state);
+            LOGGER.info("Player {} set voice state to {}", player.getName().getString(), state);
+        } catch (IllegalArgumentException e) {
+            LOGGER.error("Received invalid VoiceState \"{}\" from player {}", stateName, player);
+        }
     }
 
     public static int reloadConfig() { return RoleplaySimpleVoicechat.CONFIG.reload() ? 1 : 0; }
