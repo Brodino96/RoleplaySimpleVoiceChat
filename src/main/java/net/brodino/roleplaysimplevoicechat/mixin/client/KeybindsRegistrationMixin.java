@@ -1,4 +1,4 @@
-package net.brodino.roleplaysimplevoicechat.client.mixin;
+package net.brodino.roleplaysimplevoicechat.mixin.client;
 
 import de.maxhenkel.voicechat.intercompatibility.ClientCompatibilityManager;
 import de.maxhenkel.voicechat.voice.client.KeyEvents;

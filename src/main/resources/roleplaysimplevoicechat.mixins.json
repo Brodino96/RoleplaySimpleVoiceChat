@@ -1,15 +1,15 @@
 {
   "required": true,
-  "package": "net.brodino.roleplaysimplevoicechat.client.mixin",
+  "package": "net.brodino.roleplaysimplevoicechat.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
-    "HudRenderMixin",
-    "KeybindsRegistrationMixin",
-    "ScreenAccessor",
-    "VoicechatScreenAccessor",
-    "VoicechatScreenMixin",
-    "VoicechatSettingsMixin"
+    "client.HudRenderMixin",
+    "client.KeybindsRegistrationMixin",
+    "client.ScreenAccessor",
+    "client.VoicechatScreenAccessor",
+    "client.VoicechatScreenMixin",
+    "client.VoicechatSettingsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

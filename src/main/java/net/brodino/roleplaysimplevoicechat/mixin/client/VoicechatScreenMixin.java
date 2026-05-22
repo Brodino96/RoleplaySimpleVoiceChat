@@ -1,4 +1,4 @@
-package net.brodino.roleplaysimplevoicechat.client.mixin;
+package net.brodino.roleplaysimplevoicechat.mixin.client;
 
 import de.maxhenkel.voicechat.gui.VoiceChatScreen;
 import de.maxhenkel.voicechat.gui.widgets.ImageButton;

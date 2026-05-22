@@ -1,4 +1,4 @@
-package net.brodino.roleplaysimplevoicechat.client.mixin;
+package net.brodino.roleplaysimplevoicechat.mixin.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import de.maxhenkel.voicechat.VoicechatClient;
