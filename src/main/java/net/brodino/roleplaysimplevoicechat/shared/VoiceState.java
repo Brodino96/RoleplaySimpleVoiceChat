@@ -8,19 +8,19 @@ public enum VoiceState {
     NORMAL("normal"),
     SHOUTING("shout");
 
-    private final Identifier disabledTextureId;
-    private final Identifier enabledTextureId;
-    private final Identifier mutedTextureId;
+    private final Identifier offTextureId;
+    private final Identifier onTextureId;
+    private final Identifier slashedTextureId;
 
     VoiceState(String name) {
-        this.disabledTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_disabled.png");
-        this.enabledTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_enabled.png");
-        this.mutedTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_muted.png");
+        this.offTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_off.png");
+        this.onTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_on.png");
+        this.slashedTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_slashed.png");
     }
 
-    public Identifier getDisabledTextureId() { return this.disabledTextureId; }
-    public Identifier getEnabledTextureId() { return this.enabledTextureId; }
-    public Identifier getMutedTextureId() { return this.mutedTextureId; }
+    public Identifier getOffTextureId() { return this.offTextureId; }
+    public Identifier getOnTextureId() { return this.onTextureId; }
+    public Identifier getSlashedTextureId() { return this.slashedTextureId; }
 
     /** Returns the next state in the carousel: WHISPER -> NORMAL -> SHOUTING -> WHISPER */
     public VoiceState next() {
