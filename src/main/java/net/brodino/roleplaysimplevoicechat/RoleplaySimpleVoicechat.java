@@ -46,6 +46,10 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
     public static int reloadConfig() { return RoleplaySimpleVoicechat.CONFIG.reload() ? 1 : 0; }
 
     public static float getPlayerVoiceDistance(ServerPlayerEntity player) {
+        if (player.isDead()) {
+            return CONFIG.getData().getNormalDistance();
+        }
+
         if (player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)) {
             return 0.0F;
         }
