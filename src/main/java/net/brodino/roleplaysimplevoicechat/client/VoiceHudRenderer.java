@@ -1,7 +1,7 @@
 package net.brodino.roleplaysimplevoicechat.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.brodino.roleplaysimplevoicechat.VoiceState;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;

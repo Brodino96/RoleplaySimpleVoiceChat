@@ -1,4 +1,4 @@
-package net.brodino.roleplaysimplevoicechat.network;
+package net.brodino.roleplaysimplevoicechat.shared;
 
 import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
 import net.minecraft.util.Identifier;

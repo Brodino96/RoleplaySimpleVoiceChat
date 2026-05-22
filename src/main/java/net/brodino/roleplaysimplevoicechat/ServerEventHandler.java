@@ -1,6 +1,6 @@
 package net.brodino.roleplaysimplevoicechat;
 
-import net.brodino.roleplaysimplevoicechat.network.VoiceStatePacket;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceStatePacket;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 

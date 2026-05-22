@@ -4,6 +4,7 @@ import de.maxhenkel.voicechat.api.VoicechatApi;
 import de.maxhenkel.voicechat.api.events.EventRegistration;
 import de.maxhenkel.voicechat.api.events.VoiceDistanceEvent;
 import net.brodino.roleplaysimplevoicechat.items.ItemManager;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlugin {

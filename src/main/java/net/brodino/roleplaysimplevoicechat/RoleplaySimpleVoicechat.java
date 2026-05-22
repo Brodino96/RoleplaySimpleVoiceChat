@@ -4,6 +4,7 @@ import net.brodino.roleplaysimplevoicechat.commands.CommandHandler;
 import net.brodino.roleplaysimplevoicechat.config.Config;
 import net.brodino.roleplaysimplevoicechat.config.ConfigType;
 import net.brodino.roleplaysimplevoicechat.items.ItemManager;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;

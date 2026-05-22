@@ -1,7 +1,7 @@
 package net.brodino.roleplaysimplevoicechat.client;
 
 import de.maxhenkel.voicechat.api.VoicechatClientApi;
-import net.brodino.roleplaysimplevoicechat.VoiceState;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
 
 public class VoiceStateManager {
 
