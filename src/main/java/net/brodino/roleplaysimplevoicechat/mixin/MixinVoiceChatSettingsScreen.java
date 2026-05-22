@@ -3,21 +3,29 @@ package net.brodino.roleplaysimplevoicechat.mixin;
 import de.maxhenkel.voicechat.gui.VoiceChatScreenBase;
 import de.maxhenkel.voicechat.gui.VoiceChatSettingsScreen;
 import de.maxhenkel.voicechat.gui.widgets.KeybindButton;
+import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
 import net.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient;
 import net.brodino.roleplaysimplevoicechat.client.SavingKeybindButton;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = VoiceChatSettingsScreen.class, remap = false)
 public abstract class MixinVoiceChatSettingsScreen {
+
+    @Redirect(method = "<clinit>", at = @At(value = "NEW", target = "net/minecraft/util/Identifier", ordinal = 0))
+    private static Identifier redirectTexture(String namespace, String path) {
+        return new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/gui/gui_voicechat_settings.png");
+    }
 
     @Unique
     private KeybindButton rpsvc$cycleModeButton;
