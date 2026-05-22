@@ -38,7 +38,6 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
         try {
             VoiceStates state = VoiceStates.valueOf(stateName);
             PLAYER_VOICE_STATES.put(player.getUuid(), state);
-            LOGGER.info("Player {} set voice state to {}", player.getName().getString(), state);
         } catch (IllegalArgumentException e) {
             LOGGER.error("Received invalid VoiceState \"{}\" from player {}", stateName, player);
         }

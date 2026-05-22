@@ -1,6 +1,8 @@
 package net.brodino.roleplaysimplevoicechat;
 
 import de.maxhenkel.voicechat.api.VoicechatApi;
+import de.maxhenkel.voicechat.api.VoicechatConnection;
+import de.maxhenkel.voicechat.api.events.EntitySoundPacketEvent;
 import de.maxhenkel.voicechat.api.events.EventRegistration;
 import de.maxhenkel.voicechat.api.events.VoiceDistanceEvent;
 import net.brodino.roleplaysimplevoicechat.effects.EffectsManager;
@@ -11,9 +13,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlugin {
 
     @Override
-    public String getPluginId() {
-        return RoleplaySimpleVoicechat.MOD_ID;
-    }
+    public String getPluginId() { return RoleplaySimpleVoicechat.MOD_ID; }
 
     @Override
     public void initialize(VoicechatApi api) {
@@ -23,15 +23,24 @@ public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlug
     @Override
     public void registerEvents(EventRegistration registration) {
         registration.registerEvent(VoiceDistanceEvent.class, this::onVoiceDistance);
+        registration.registerEvent(EntitySoundPacketEvent.class, this::onEntitySoundPacket);
+    }
+
+    private void onEntitySoundPacket(EntitySoundPacketEvent event) {
+        VoicechatConnection connection = event.getSenderConnection();
+        if (connection == null) {
+            return;
+        }
+
+        ServerPlayerEntity player = (ServerPlayerEntity) (Object) connection.getPlayer().getPlayer();
+
+        if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATE_SPEECH)) {
+            event.cancel();
+        }
     }
 
     private void onVoiceDistance(VoiceDistanceEvent event) {
         ServerPlayerEntity player = (ServerPlayerEntity) (Object) event.getSenderConnection().getPlayer().getPlayer();
-
-        if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATE_SPEECH)) {
-            event.cancel();
-            return;
-        }
 
         if (player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER) || player.hasStatusEffect(EffectsManager.EXTEND_SPEECH)) {
             event.setDistance(RoleplaySimpleVoicechat.CONFIG.getData().getExtendedDistance());
