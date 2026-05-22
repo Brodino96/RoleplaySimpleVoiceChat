@@ -6,11 +6,14 @@ import net.minecraft.util.Identifier;
 public enum VoiceStates {
     WHISPER("whisper"),
     NORMAL("normal"),
-    SHOUTING("shout");
+    SHOUTING("shout"),
+    EXTENDED("extended");
 
     private final Identifier offTextureId;
     private final Identifier onTextureId;
     private final Identifier slashedTextureId;
+
+    private static final VoiceStates[] states = { WHISPER, NORMAL, SHOUTING };
 
     VoiceStates(String name) {
         this.offTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_off.png");
@@ -24,7 +27,12 @@ public enum VoiceStates {
 
     /** Returns the next state in the carousel: WHISPER -> NORMAL -> SHOUTING -> WHISPER */
     public VoiceStates next() {
-        VoiceStates[] values = VoiceStates.values();
-        return values[(this.ordinal() + 1) % values.length];
+        for (int i = 0; i < states.length; i++) {
+            if (states[i].equals(this)) {
+                return states[(i + 1) % states.length];
+            }
+        }
+
+        return this;
     }
 }
