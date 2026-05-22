@@ -1,4 +1,4 @@
-package net.brodino.roleplaysimplevoicechat.mixin;
+package net.brodino.roleplaysimplevoicechat.client.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import de.maxhenkel.voicechat.VoicechatClient;
@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = RenderEvents.class, remap = false)
-public class MixinRenderEvents {
+public class HudRenderMixin {
 
     @Unique
     private static final Identifier SPEAKER_OFF_ICON = new Identifier("voicechat", "textures/icons/speaker_off.png");

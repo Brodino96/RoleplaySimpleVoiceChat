@@ -1,4 +1,4 @@
-package net.brodino.roleplaysimplevoicechat.mixin;
+package net.brodino.roleplaysimplevoicechat.client.mixin;
 
 import de.maxhenkel.voicechat.gui.VoiceChatScreenBase;
 import de.maxhenkel.voicechat.gui.VoiceChatSettingsScreen;
@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = VoiceChatSettingsScreen.class, remap = false)
-public abstract class MixinVoiceChatSettingsScreen {
+public abstract class VoicechatSettingsMixin {
 
     @Redirect(method = "<clinit>", at = @At(value = "NEW", target = "net/minecraft/util/Identifier", ordinal = 0))
     private static Identifier redirectTexture(String namespace, String path) {
@@ -32,13 +32,13 @@ public abstract class MixinVoiceChatSettingsScreen {
 
     @Inject(method = "init", at = @At("HEAD"), remap = true)
     private void expandDialog(CallbackInfo ci) {
-        VoiceChatScreenBaseAccessor accessor = (VoiceChatScreenBaseAccessor) (Object) this;
+        VoicechatScreenAccessor accessor = (VoicechatScreenAccessor) (Object) this;
         accessor.setYSize(240);
     }
 
     @Inject(method = "init", at = @At("TAIL"), remap = true)
     private void addCycleModeButton(CallbackInfo ci) {
-        VoiceChatScreenBaseAccessor accessor = (VoiceChatScreenBaseAccessor) (Object) this;
+        VoicechatScreenAccessor accessor = (VoicechatScreenAccessor) (Object) this;
         VoiceChatScreenBase base = (VoiceChatScreenBase) (Object) this;
         int guiLeft = base.getGuiLeft();
         int guiTop = base.getGuiTop();

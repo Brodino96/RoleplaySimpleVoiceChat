@@ -1,4 +1,4 @@
-package net.brodino.roleplaysimplevoicechat.mixin;
+package net.brodino.roleplaysimplevoicechat.client.mixin;
 
 import de.maxhenkel.voicechat.gui.VoiceChatScreen;
 import de.maxhenkel.voicechat.gui.widgets.ImageButton;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = VoiceChatScreen.class, remap = false)
-public abstract class MixinVoiceChatScreen {
+public abstract class VoicechatScreenMixin {
 
     @Inject(method = "init", at = @At("TAIL"), remap = true)
     private void disableGroupAndVolumeButtons(CallbackInfo ci) {

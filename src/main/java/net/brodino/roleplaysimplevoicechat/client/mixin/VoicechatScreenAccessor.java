@@ -1,11 +1,11 @@
-package net.brodino.roleplaysimplevoicechat.mixin;
+package net.brodino.roleplaysimplevoicechat.client.mixin;
 
 import de.maxhenkel.voicechat.gui.VoiceChatScreenBase;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(value = VoiceChatScreenBase.class, remap = false)
-public interface VoiceChatScreenBaseAccessor {
+public interface VoicechatScreenAccessor {
     @Accessor("xSize") int getXSize();
     @Accessor("ySize") void setYSize(int ySize);
 }

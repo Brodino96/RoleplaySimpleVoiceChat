@@ -1,4 +1,4 @@
-package net.brodino.roleplaysimplevoicechat.mixin;
+package net.brodino.roleplaysimplevoicechat.client.mixin;
 
 import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.Element;
