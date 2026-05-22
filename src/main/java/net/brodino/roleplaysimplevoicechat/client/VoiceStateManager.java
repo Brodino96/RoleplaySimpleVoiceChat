@@ -24,4 +24,5 @@ public class VoiceStateManager {
     public boolean isTalking() { return this.clientApi != null && this.clientApi.isTalking(); }
     public boolean isMuted() { return this.clientApi != null && this.clientApi.isMuted(); }
     public boolean isDisabled() { return this.clientApi != null && this.clientApi.isDisabled(); }
+    public boolean isPushToTalk() { return this.clientApi != null && "PTT".equals(this.clientApi.getClientConfig().getValue("microphone_activation_type")); }
 }

@@ -39,7 +39,7 @@ public class MixinRenderEvents {
 
         VoiceState state = manager.getCurrentState();
         Identifier texture;
-        if (manager.isMuted()) {
+        if (manager.isMuted() && !manager.isPushToTalk()) {
             texture = state.getMutedTextureId();
         } else if (manager.isTalking()) {
             texture = state.getEnabledTextureId();
