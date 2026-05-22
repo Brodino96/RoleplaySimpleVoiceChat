@@ -1,8 +1,8 @@
 package net.brodino.roleplaysimplevoicechat.client;
 
 import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
-import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.brodino.roleplaysimplevoicechat.shared.VoiceStatePacket;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

@@ -1,26 +1,21 @@
 package net.brodino.roleplaysimplevoicechat.shared;
 
-import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
 import net.minecraft.util.Identifier;
 
 public enum VoiceStates {
-    WHISPER("whisper"),
-    NORMAL("normal"),
-    SHOUTING("shout");
+    WHISPER(new VoiceState("whisper")),
+    NORMAL(new VoiceState("normal")),
+    SHOUTING(new VoiceState("shout"));
 
-    private final Identifier offTextureId;
-    private final Identifier onTextureId;
-    private final Identifier slashedTextureId;
+    private final VoiceState state;
 
-    VoiceStates(String name) {
-        this.offTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_off.png");
-        this.onTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_on.png");
-        this.slashedTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_slashed.png");
+    VoiceStates(VoiceState state) {
+        this.state = state;
     }
 
-    public Identifier getOffTextureId() { return this.offTextureId; }
-    public Identifier getOnTextureId() { return this.onTextureId; }
-    public Identifier getSlashedTextureId() { return this.slashedTextureId; }
+    public Identifier getOffTextureId() { return this.state.getOffTextureId(); }
+    public Identifier getOnTextureId() { return this.state.getOnTextureId(); }
+    public Identifier getSlashedTextureId() { return this.state.getSlashedTextureId(); }
 
     /** Returns the next state in the carousel: WHISPER -> NORMAL -> SHOUTING -> WHISPER */
     public VoiceStates next() {
