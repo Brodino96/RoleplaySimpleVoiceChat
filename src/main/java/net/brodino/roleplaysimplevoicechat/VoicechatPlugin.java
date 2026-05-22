@@ -34,7 +34,7 @@ public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlug
         }
 
         if (player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER) || player.hasStatusEffect(EffectsManager.EXTEND_SPEECH)) {
-            event.setDistance(RoleplaySimpleVoicechat.CONFIG.getData().getVoiceExtenderDistance());
+            event.setDistance(RoleplaySimpleVoicechat.CONFIG.getData().getExtendedDistance());
             return;
         }
 
@@ -43,6 +43,7 @@ public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlug
             case WHISPER -> RoleplaySimpleVoicechat.CONFIG.getData().getWhisperDistance();
             case NORMAL -> RoleplaySimpleVoicechat.CONFIG.getData().getNormalDistance();
             case SHOUTING -> RoleplaySimpleVoicechat.CONFIG.getData().getShoutDistance();
+            case EXTENDED -> RoleplaySimpleVoicechat.CONFIG.getData().getExtendedDistance();
         };
 
         event.setDistance(distance);
