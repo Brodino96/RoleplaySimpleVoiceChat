@@ -3,6 +3,7 @@ package net.brodino.roleplaysimplevoicechat;
 import net.brodino.roleplaysimplevoicechat.commands.CommandHandler;
 import net.brodino.roleplaysimplevoicechat.config.Config;
 import net.brodino.roleplaysimplevoicechat.config.ConfigType;
+import net.brodino.roleplaysimplevoicechat.effects.EffectsManager;
 import net.brodino.roleplaysimplevoicechat.items.ItemManager;
 import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
 import net.fabricmc.api.ModInitializer;
@@ -26,9 +27,9 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
     @Override
     public void onInitialize() {
         RoleplaySimpleVoicechat.LOGGER.info("Initializing RoleplaySimpleVoicechat!");
-
-        ItemManager.initialize();
         CommandHandler.initialize();
+        ItemManager.initialize();
+        EffectsManager.initialize();
         ServerEventHandler.initialize();
     }
 
