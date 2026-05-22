@@ -5,7 +5,7 @@ import de.maxhenkel.voicechat.api.events.EventRegistration;
 import de.maxhenkel.voicechat.api.events.VoiceDistanceEvent;
 import net.brodino.roleplaysimplevoicechat.effects.EffectsManager;
 import net.brodino.roleplaysimplevoicechat.items.ItemManager;
-import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlugin {
@@ -38,7 +38,7 @@ public class VoicechatPlugin implements de.maxhenkel.voicechat.api.VoicechatPlug
             return;
         }
 
-        VoiceState state = RoleplaySimpleVoicechat.PLAYER_VOICE_STATES.getOrDefault(player.getUuid(), VoiceState.NORMAL);
+        VoiceStates state = RoleplaySimpleVoicechat.PLAYER_VOICE_STATES.getOrDefault(player.getUuid(), VoiceStates.NORMAL);
         float distance = switch (state) {
             case WHISPER -> RoleplaySimpleVoicechat.CONFIG.getData().getWhisperDistance();
             case NORMAL -> RoleplaySimpleVoicechat.CONFIG.getData().getNormalDistance();

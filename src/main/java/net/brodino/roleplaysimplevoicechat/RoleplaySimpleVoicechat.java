@@ -5,7 +5,7 @@ import net.brodino.roleplaysimplevoicechat.config.Config;
 import net.brodino.roleplaysimplevoicechat.config.ConfigType;
 import net.brodino.roleplaysimplevoicechat.effects.EffectsManager;
 import net.brodino.roleplaysimplevoicechat.items.ItemManager;
-import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -22,7 +22,7 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static final Config<ConfigType> CONFIG = new Config<>(MOD_ID, "config", ConfigType.class, ConfigType::new, LOGGER);
 
-    public static final Map<UUID, VoiceState> PLAYER_VOICE_STATES = new ConcurrentHashMap<>();
+    public static final Map<UUID, VoiceStates> PLAYER_VOICE_STATES = new ConcurrentHashMap<>();
 
     @Override
     public void onInitialize() {
@@ -36,7 +36,7 @@ public class RoleplaySimpleVoicechat implements ModInitializer {
     public static void handleVoiceStateChange(ServerPlayerEntity player, PacketByteBuf buf) {
         String stateName = buf.readString(32);
         try {
-            VoiceState state = VoiceState.valueOf(stateName);
+            VoiceStates state = VoiceStates.valueOf(stateName);
             PLAYER_VOICE_STATES.put(player.getUuid(), state);
             LOGGER.info("Player {} set voice state to {}", player.getName().getString(), state);
         } catch (IllegalArgumentException e) {

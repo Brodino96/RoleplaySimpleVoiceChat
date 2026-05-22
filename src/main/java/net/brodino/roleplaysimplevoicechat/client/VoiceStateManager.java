@@ -2,13 +2,13 @@ package net.brodino.roleplaysimplevoicechat.client;
 
 import de.maxhenkel.voicechat.api.VoicechatClientApi;
 import net.brodino.roleplaysimplevoicechat.effects.EffectsManager;
-import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.minecraft.client.network.ClientPlayerEntity;
 
 public class VoiceStateManager {
 
     private static VoiceStateManager instance;
-    private VoiceState currentState = VoiceState.NORMAL;
+    private VoiceStates currentState = VoiceStates.NORMAL;
     private VoicechatClientApi clientApi;
 
     public void setClientApi(VoicechatClientApi api) { this.clientApi = api; }
@@ -27,12 +27,12 @@ public class VoiceStateManager {
             || this.isMuted();
     }
 
-    public VoiceState cycleState() {
+    public VoiceStates cycleState() {
         this.currentState = currentState.next();
         return this.currentState;
     }
 
-    public VoiceState getCurrentState() { return currentState; }
+    public VoiceStates getCurrentState() { return currentState; }
 
     public boolean isTalking() { return this.clientApi != null && this.clientApi.isTalking(); }
     public boolean isMuted() { return this.clientApi != null && this.clientApi.isMuted(); }

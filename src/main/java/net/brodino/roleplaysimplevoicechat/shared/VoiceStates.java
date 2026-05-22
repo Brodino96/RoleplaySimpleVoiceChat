@@ -3,7 +3,7 @@ package net.brodino.roleplaysimplevoicechat.shared;
 import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
 import net.minecraft.util.Identifier;
 
-public enum VoiceState {
+public enum VoiceStates {
     WHISPER("whisper"),
     NORMAL("normal"),
     SHOUTING("shout");
@@ -12,7 +12,7 @@ public enum VoiceState {
     private final Identifier onTextureId;
     private final Identifier slashedTextureId;
 
-    VoiceState(String name) {
+    VoiceStates(String name) {
         this.offTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_off.png");
         this.onTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_on.png");
         this.slashedTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_slashed.png");
@@ -23,8 +23,8 @@ public enum VoiceState {
     public Identifier getSlashedTextureId() { return this.slashedTextureId; }
 
     /** Returns the next state in the carousel: WHISPER -> NORMAL -> SHOUTING -> WHISPER */
-    public VoiceState next() {
-        VoiceState[] values = VoiceState.values();
+    public VoiceStates next() {
+        VoiceStates[] values = VoiceStates.values();
         return values[(this.ordinal() + 1) % values.length];
     }
 }

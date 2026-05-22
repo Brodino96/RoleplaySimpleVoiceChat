@@ -1,7 +1,7 @@
 package net.brodino.roleplaysimplevoicechat.client;
 
 import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
-import net.brodino.roleplaysimplevoicechat.shared.VoiceState;
+import net.brodino.roleplaysimplevoicechat.shared.VoiceStates;
 import net.brodino.roleplaysimplevoicechat.shared.VoiceStatePacket;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -47,7 +47,7 @@ public class RoleplaySimpleVoicechatClient implements ClientModInitializer {
                 return;
             }
 
-            VoiceState newState = manager.cycleState();
+            VoiceStates newState = manager.cycleState();
             RoleplaySimpleVoicechat.LOGGER.debug("Voice mode cycled to {}", newState);
 
             var buf = PacketByteBufs.create();
