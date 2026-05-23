@@ -97,7 +97,27 @@ public class HudRenderMixin {
         float scale = VoicechatClient.CLIENT_CONFIG.hudIconScale.get().floatValue();
         matrixStack.scale(scale, scale, 1F);
 
-        DrawableHelper.drawTexture(matrixStack, posX < 0 ? -16 : 0, posY < 0 ? -16 : 0, 0, 0, 16, 16, 16, 16);
+        int totalFrames = 7;
+        int frameHeight = 16;
+        int frameWidth = 16;
+
+        int frameTime = 3;
+
+        int ticks = minecraft.player != null ? minecraft.player.age : 0;
+        int currentFrame = (ticks / frameTime) % totalFrames;
+
+        int v = currentFrame * frameHeight;
+
+        DrawableHelper.drawTexture(
+                matrixStack,
+                posX < 0 ? -16 : 0,
+                posY < 0 ? -16 : 0,
+                0, v,
+                frameWidth,
+                frameHeight,
+                frameWidth,
+                frameHeight * totalFrames
+        );
 
         RenderSystem.disableBlend();
         matrixStack.pop();
