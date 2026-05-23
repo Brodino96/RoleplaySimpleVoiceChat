@@ -23,8 +23,7 @@ public class VoiceStateManager {
         return !player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)
             && !player.hasStatusEffect(EffectsManager.EXTENDED_SPEECH)
             && !player.isDead()
-            && !this.isDisabled()
-            && !this.isMuted();
+            && !this.isDisabled();
     }
 
     public VoiceStates cycleState() {
