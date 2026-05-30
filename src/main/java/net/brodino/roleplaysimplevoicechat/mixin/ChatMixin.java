@@ -1,5 +1,6 @@
 package net.brodino.roleplaysimplevoicechat.mixin;
 
+import de.maxhenkel.voicechat.Voicechat;
 import net.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
 import net.minecraft.network.message.MessageType;
 import net.minecraft.network.message.SignedMessage;
@@ -36,8 +37,13 @@ public class ChatMixin {
         SentMessage sent = SentMessage.of(message);
         float distSq = distance * distance;
 
+        boolean isSpectator = Voicechat.SERVER_CONFIG.spectatorInteraction.get() && this.player.isSpectator();
+
         for (ServerPlayerEntity recipient : server.getPlayerManager().getPlayerList()) {
             if (recipient == this.player || (recipient.getWorld() == this.player.getWorld() && recipient.squaredDistanceTo(this.player) <= distSq)) {
+                if (isSpectator && !recipient.isSpectator()) {
+                    continue;
+                }
                 recipient.sendChatMessage(sent, false, params);
             }
         }
