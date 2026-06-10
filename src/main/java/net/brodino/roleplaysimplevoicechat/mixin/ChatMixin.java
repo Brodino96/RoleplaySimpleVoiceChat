@@ -37,7 +37,7 @@ public class ChatMixin {
         SentMessage sent = SentMessage.of(message);
         float distSq = distance * distance;
 
-        boolean isSpectator = Voicechat.SERVER_CONFIG.spectatorInteraction.get() && this.player.isSpectator();
+        boolean restrictSpectatorChat = !Voicechat.SERVER_CONFIG.spectatorInteraction.get() && this.player.isSpectator();
 
         for (ServerPlayerEntity recipient : server.getPlayerManager().getPlayerList()) {
             if (recipient == this.player || (recipient.getWorld() == this.player.getWorld() && recipient.squaredDistanceTo(this.player) <= distSq)) {
