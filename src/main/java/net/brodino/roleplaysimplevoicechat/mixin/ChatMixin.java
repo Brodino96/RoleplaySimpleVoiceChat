@@ -40,12 +40,24 @@ public class ChatMixin {
         boolean restrictSpectatorChat = !Voicechat.SERVER_CONFIG.spectatorInteraction.get() && this.player.isSpectator();
 
         for (ServerPlayerEntity recipient : server.getPlayerManager().getPlayerList()) {
-            if (recipient == this.player || (recipient.getWorld() == this.player.getWorld() && recipient.squaredDistanceTo(this.player) <= distSq)) {
-                if (isSpectator && !recipient.isSpectator()) {
-                    continue;
-                }
+            if (recipient == this.player) {
                 recipient.sendChatMessage(sent, false, params);
+                continue;
             }
+
+            if (recipient.getWorld() != this.player.getWorld()) {
+                continue;
+            }
+
+            if (recipient.squaredDistanceTo(this.player) > distSq) {
+                continue;
+            }
+
+            if (restrictSpectatorChat && !recipient.isSpectator()) {
+                continue;
+            }
+
+            recipient.sendChatMessage(sent, false, params);
         }
     }
 }
