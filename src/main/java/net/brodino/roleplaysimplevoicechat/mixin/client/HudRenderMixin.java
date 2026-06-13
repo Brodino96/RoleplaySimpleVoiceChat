@@ -55,15 +55,15 @@ public class HudRenderMixin {
 
         VoiceStateManager manager = VoiceStateManager.getInstance();
 
-        if (manager.isDisabled()) {
-            return SPEAKER_OFF_ICON;
-        }
-
         VoiceStates state;
         if (player.hasStatusEffect(EffectsManager.EXTENDED_SPEECH) || player.getMainHandStack().getItem().equals(ItemManager.VOICE_EXTENDER)) {
             state = VoiceStates.EXTENDED;
         } else {
             state = manager.getCurrentState();
+        }
+
+        if (manager.isDisabled()) {
+            return state.getSlashedTextureId();
         }
 
         if (manager.isMuted()) {
