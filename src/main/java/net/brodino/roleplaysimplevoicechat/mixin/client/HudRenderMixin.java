@@ -49,10 +49,6 @@ public class HudRenderMixin {
             return SPEAKER_OFF_ICON;
         }
 
-        if (player.isDead() || player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)) {
-            return SPEAKER_OFF_ICON;
-        }
-
         VoiceStateManager manager = VoiceStateManager.getInstance();
 
         VoiceStates state;
@@ -62,7 +58,7 @@ public class HudRenderMixin {
             state = manager.getCurrentState();
         }
 
-        if (manager.isDisabled()) {
+        if (manager.isDisabled() || player.isDead() || player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)) {
             return state.getDisabledTextureId();
         }
 
