@@ -28,8 +28,11 @@ public class HudRenderMixin {
     @Final
     private MinecraftClient minecraft;
 
-    @Unique
-    private static final Identifier SPEAKER_OFF_ICON = new Identifier("voicechat", "textures/icons/speaker_off.png");
+    @Unique private static final Identifier SPEAKER_OFF_ICON = new Identifier("voicechat", "textures/icons/speaker_off.png");
+    @Unique private static final int animationsTotalFrames = 7;
+    @Unique private static final int animationsFrameHeight = 16;
+    @Unique private static final int animationsFrameWidth = 16;
+    @Unique private static final int animationsFrameTime = 3;
 
     @Inject(method = "onRenderHUD", at = @At("HEAD"), cancellable = true)
     private void onRenderHUD(MatrixStack stack, float tickDelta, CallbackInfo ci) {
@@ -79,6 +82,10 @@ public class HudRenderMixin {
     @Unique
 	private void renderIcon(MatrixStack matrixStack, Identifier texture) {
         MinecraftClient minecraft = MinecraftClient.getInstance();
+        if (minecraft.player == null) {
+            return;
+        }
+
         matrixStack.push();
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
@@ -96,26 +103,19 @@ public class HudRenderMixin {
         float scale = VoicechatClient.CLIENT_CONFIG.hudIconScale.get().floatValue();
         matrixStack.scale(scale, scale, 1F);
 
-        int totalFrames = 7;
-        int frameHeight = 16;
-        int frameWidth = 16;
+        int currentFrame = (minecraft.player.age / animationsFrameTime) % animationsTotalFrames;
 
-        int frameTime = 3;
-
-        int ticks = minecraft.player != null ? minecraft.player.age : 0;
-        int currentFrame = (ticks / frameTime) % totalFrames;
-
-        int v = currentFrame * frameHeight;
+        int v = currentFrame * animationsFrameHeight;
 
         DrawableHelper.drawTexture(
                 matrixStack,
                 posX < 0 ? -16 : 0,
                 posY < 0 ? -16 : 0,
                 0, v,
-                frameWidth,
-                frameHeight,
-                frameWidth,
-                frameHeight * totalFrames
+                animationsFrameWidth,
+                animationsFrameHeight,
+                animationsFrameWidth,
+                animationsFrameHeight * animationsTotalFrames
         );
 
         RenderSystem.disableBlend();
