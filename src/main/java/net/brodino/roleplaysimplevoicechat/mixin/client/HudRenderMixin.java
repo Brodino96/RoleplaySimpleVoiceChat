@@ -65,11 +65,7 @@ public class HudRenderMixin {
             state = manager.getCurrentState();
         }
 
-        if (manager.isDisabled() || player.isDead() || player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)) {
-            return state.getDisabledTextureId();
-        }
-
-        if (manager.isMuted()) {
+        if (manager.isDisabled() || player.isDead() || manager.isMuted() || player.hasStatusEffect(EffectsManager.NEGATED_SPEECH)) {
             return state.getDisabledTextureId();
         }
 
