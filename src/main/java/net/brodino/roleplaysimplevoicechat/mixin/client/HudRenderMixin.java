@@ -33,7 +33,8 @@ public class HudRenderMixin {
 
     @Inject(method = "onRenderHUD", at = @At("HEAD"), cancellable = true)
     private void onRenderHUD(MatrixStack stack, float tickDelta, CallbackInfo ci) {
-        if (VoicechatClient.CLIENT_CONFIG.hideIcons.get() || !VoicechatClient.CLIENT_CONFIG.showHudIcons.get()) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client.options.hudHidden || VoicechatClient.CLIENT_CONFIG.hideIcons.get() || !VoicechatClient.CLIENT_CONFIG.showHudIcons.get()) {
             ci.cancel(); // Doesn't render anything
             return;
         }
