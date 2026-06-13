@@ -42,6 +42,12 @@ public class HudRenderMixin {
         ci.cancel();
     }
 
+    /**
+     * Gets the correct icon to be rendered...
+     * WARNING: This method CAN return a basic icon (16x16) instead of the expected format
+     * I could fix this by having a way do differentiate icons during rendering to not animate this
+     * But it will return this icon only if the player is null, and if the player is null I don't think this is going to be a problem
+     */
     @Unique
     private Identifier getCurrentIcon() {
         ClientPlayerEntity player = this.minecraft.player;
