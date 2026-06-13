@@ -8,7 +8,7 @@ import net.minecraft.util.registry.Registry;
 
 public class EffectsManager {
 
-	public static StatusEffect EXTENDED_SPEECH = new ExtendedSpeechEffect(StatusEffectCategory.NEUTRAL, 16755200);
+	public static StatusEffect EXTENDED_SPEECH = new ExtendedSpeechEffect(StatusEffectCategory.NEUTRAL, 2941931 /* Sonic boom azure */);
 	public static StatusEffect NEGATED_SPEECH = new NegatedSpeechEffect(StatusEffectCategory.NEUTRAL, 1);
 
 	public static void initialize() {
