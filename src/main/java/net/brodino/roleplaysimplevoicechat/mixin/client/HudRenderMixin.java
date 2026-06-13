@@ -63,11 +63,11 @@ public class HudRenderMixin {
         }
 
         if (manager.isDisabled()) {
-            return state.getSlashedTextureId();
+            return state.getDisabledTextureId();
         }
 
         if (manager.isMuted()) {
-            return state.getSlashedTextureId();
+            return state.getDisabledTextureId();
         }
 
         if (manager.isTalking()) {
