@@ -9,21 +9,21 @@ public enum VoiceStates {
     SHOUTING("shout"),
     EXTENDED("extended");
 
-    private final Identifier offTextureId;
-    private final Identifier onTextureId;
-    private final Identifier disabledTextureId;
+    private final Identifier offSpriteId;
+    private final Identifier onSpriteId;
+    private final Identifier disabledSpriteId;
 
     private static final VoiceStates[] states = { WHISPER, NORMAL, SHOUTING };
 
     VoiceStates(String name) {
-        this.offTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_off.png");
-        this.onTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_on.png");
-        this.disabledTextureId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/icons/" + name + "_disabled.png");
+        this.offSpriteId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, name + "_off");
+        this.onSpriteId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, name + "_on");
+        this.disabledSpriteId = new Identifier(RoleplaySimpleVoicechat.MOD_ID, name + "_disabled");
     }
 
-    public Identifier getOffTextureId() { return this.offTextureId; }
-    public Identifier getOnTextureId() { return this.onTextureId; }
-    public Identifier getDisabledTextureId() { return this.disabledTextureId; }
+    public Identifier getOffSpriteId() { return this.offSpriteId; }
+    public Identifier getOnSpriteId() { return this.onSpriteId; }
+    public Identifier getDisabledSpriteId() { return this.disabledSpriteId; }
 
     /** Returns the next state in the carousel: WHISPER -> NORMAL -> SHOUTING -> WHISPER */
     public VoiceStates next() {
