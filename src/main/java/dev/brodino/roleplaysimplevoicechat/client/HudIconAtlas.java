@@ -21,7 +21,7 @@ public class HudIconAtlas extends SpriteAtlasHolder {
     private static final Identifier FABRIC_ID = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "hud_icon_atlas");
     private static HudIconAtlas INSTANCE;
 
-    private HudIconAtlas() { super(MinecraftClient.getInstance().getTextureManager(), ATLAS_ID, "icons"); }
+    private HudIconAtlas() { super(MinecraftClient.getInstance().getTextureManager(), ATLAS_ID, "gui/icons"); }
 
     @Override
     protected Stream<Identifier> getSprites() {

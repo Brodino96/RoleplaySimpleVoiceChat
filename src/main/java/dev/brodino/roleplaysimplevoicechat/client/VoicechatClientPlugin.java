@@ -19,7 +19,7 @@ public class VoicechatClientPlugin implements VoicechatPlugin {
         registration.registerEvent(ClientVoicechatConnectionEvent.class, event -> {
             if (event.isConnected()) {
                 VoiceStateManager.getInstance().setClientApi(event.getVoicechat());
-                RoleplaySimpleVoicechat.LOGGER.info("Voice chat connected — client API captured");
+                RoleplaySimpleVoicechat.LOGGER.info("Voice chat connected - client API captured");
             } else {
                 VoiceStateManager.getInstance().setClientApi(null);
                 RoleplaySimpleVoicechat.LOGGER.info("Voice chat disconnected");
