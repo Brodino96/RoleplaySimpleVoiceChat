@@ -2,7 +2,7 @@
 
 ![mod_banner](https://imgur.com/eJa97jA.png)
 
-An addon that expands the functionality of Simple Voice Chat to fit immersive roleplay servers and custom narrative universes
+An addon that expands the functionality of Simple Voice Chat to fit immersive roleplay servers and custom narrative universes.
 
 When adding this mod to your project, you are encouraged to edit the locales and assets to perfectly blend with your server's lore!
 
@@ -10,21 +10,43 @@ When adding this mod to your project, you are encouraged to edit the locales and
 
 ### Features
 
-- **Voice Range Cycling**: Cycle between customizable voice ranges (whisper, normal, shout) via a keybind (default: [z]).
-- **Proximity Based Chat**: In game text chat follows the current voice chat ranges, meaning players can only read your text messages if they are within your active voice range distance.
-- **Group Menu Disabled**: The Simple Voice Chat group menu is disabled to prevent out of character coordinates sharing and unimmersive communication.
-- **Adjust Volume Menu Disabled**: The adjust volume menu is disabled avoid players abusing of it to see player names.
-- **Resonant Shell**: A custom item that forces a specific voice range (Extended) when held in the hand, allowing your voice to carry over much larger distances.
-- **Custom Status Effects**:
-  - **Extended Speech**: Imbues your character with voice enhancement, allowing your speaking voice to reach further.
-  - **Negated Speech**: Prevents your character from speaking entirely (mutes voice chat while active).
+#### Voice System
+- **Voice Range Cycling**: Cycle between customizable voice ranges (whisper, normal, shout) via a keybind.
+- **Extended Range**: Reach even further with the Extended range, accessible via the Resonant Shell item or the Extended Speech status effect.
+- **Dead Players Use Normal Range**: Dead players always transmit at the normal voice distance, regardless of their selected state.
+- **Built in Keybinds Suppressed**: The mod disables Simple Voice Chat's built-in whisper, group, and adjust-volume keybinds in favor of the unified cycling system.
+
+#### Custom GUI
+- **State Aware HUD**: Replaces the default Simple Voice Chat HUD icon with a custom 13-sprite atlas that visually reflects the current voice range and state.
+- **Icon States**: Each range (whisper, normal, shout, extended) has three sprite variants: **on** (talking), **off** (idle), and **disabled** (muted/dead/under Negated Speech).
+
+#### Settings Integration
+- **Cycle Mode Button**: A "Cycle Voice Mode" keybind button is injected directly into the Simple Voice Chat settings screen for easy remapping.
+
+#### Proximity Based Chat
+- **Range Linked Text Chat**: The in game text chat follows the current voice range. Players can only read your messages if they are within your active voice distance.
+
+#### Menu Restrictions
+- **Group Menu Disabled**: The Simple Voice Chat group menu is greyed out to prevent out of character coordinate sharing and unimmersive communication.
+- **Adjust Volume Menu Disabled**: The adjust volume menu is hidden to prevent players from abusing it to see player names.
+
+#### Items
+- **Resonant Shell**: A custom Epic rarity item (found in the Tools tab) that forces the Extended voice range while held, allowing your voice to carry over much larger distances. Fireproof, unbreakable, and stack size of 1. Includes customizable tooltip descriptions.
+
+#### Custom Status Effects
+| Effect              | Color     | Behavior                                                                                                                                     |
+|---------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| **Extended Speech** | `#2CE0B3` | Imbues your character with voice enhancement, extending speaking range to the Extended distance. Prevents manual state cycling while active. |
+| **Negated Speech**  | `#000000` | Prevents your character from speaking entirely, mutes voice chat and blocks outgoing voice packets server side. Distance is forced to 0.     |
 
 ---
 
 ### Configuration
 
-You can configure the voice range distances by editing the configuration file located at:
-`config/roleplaysimplevoicechat/roleplaysimplevoicechat.json`
+The configuration file is auto-created at: `config/roleplaysimplevoicechat.json`
+
+Can be reloaded by using the command `/rpsvc reloadConfig`.  
+It is also reloaded automatically whenever a data pack reload (`/reload`) is triggered.
 
 #### Configurable Options:
 - `whisperDistance` (Default: `6.0` blocks): The maximum hearing distance for whisper mode.
@@ -34,23 +56,15 @@ You can configure the voice range distances by editing the configuration file lo
 
 ---
 
-### Commands
-
-- `/rpsvc reloadConfig`
-
----
-
 ### Customization
 
 Everything in the mod can be customized to fit your specific narrative universe:
 - **Locales**: Edit the translation files under `assets/roleplaysimplevoicechat/lang/` to rename items (such as the Resonant Shell), keybinds, and effect names.
-- **Assets**: Swap out textures and models under the assets directory to visual match your server's theme.
+- **Assets**: Swap out textures, icons, and models under the `assets/` directory to visually match your server's theme.
 
 ---
 
 ### Contributors
 - **Brodino**: Main developer
-- **FapTobi_**: Graphics
+- **FapTobi_**: Textures
 - **NormanNoone**: Textures
-
-For installation and advanced instructions, see the [Documentation](https://docs.brodino.dev/minecraft/roleplaysimplevoicechat).
