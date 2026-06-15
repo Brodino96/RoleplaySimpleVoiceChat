@@ -20,8 +20,8 @@ public class Config<T> {
     private final Class<T> type;
     private final Supplier<T> defaults;
 
-    public Config(String modId, String configName, Class<T> type, Supplier<T> defaults, Logger logger) {
-        Path dataDirectory = Path.of("config").resolve(modId);
+    public Config(String configName, Class<T> type, Supplier<T> defaults, Logger logger) {
+        Path dataDirectory = Path.of("config");
         this.type = type;
         this.defaults = defaults;
 
