@@ -7,12 +7,12 @@
     "ChatMixin"
   ],
   "client": [
-    "client.HudRenderMixin",
+    "client.gui.HudRenderMixin",
     "client.KeybindsRegistrationMixin",
-    "client.ScreenAccessor",
-    "client.VoicechatScreenAccessor",
-    "client.VoicechatScreenMixin",
-    "client.VoicechatSettingsMixin"
+    "client.gui.accessors.ScreenAccessor",
+    "client.gui.accessors.VoicechatScreenAccessor",
+    "client.gui.VoicechatScreenMixin",
+    "client.gui.VoicechatSettingsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,4 +1,4 @@
-package dev.brodino.roleplaysimplevoicechat.mixin.client;
+package dev.brodino.roleplaysimplevoicechat.mixin.client.gui.accessors;
 
 import de.maxhenkel.voicechat.gui.VoiceChatScreenBase;
 import org.spongepowered.asm.mixin.Mixin;
