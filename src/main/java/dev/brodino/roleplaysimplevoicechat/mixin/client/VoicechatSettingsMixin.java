@@ -22,11 +22,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value = VoiceChatSettingsScreen.class, remap = false)
 public abstract class VoicechatSettingsMixin {
 
-    @Redirect(method = "<clinit>", at = @At(value = "NEW", target = "net/minecraft/util/Identifier", ordinal = 0))
-    private static Identifier redirectTexture(String namespace, String path) {
-        return new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/gui/gui_voicechat_settings.png");
-    }
-
     @Unique
     private KeybindButton rpsvc$cycleModeButton;
 
