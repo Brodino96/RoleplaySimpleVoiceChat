@@ -1,0 +1,11 @@
+{
+  "pack": {
+    "pack_format": 9,
+    "description": [
+      {
+        "translate": "resourcepack.roleplaysimplevoicechat.fancy_backgrounds.description",
+        "color": "light_gray"
+      }
+    ]
+  }
+}
