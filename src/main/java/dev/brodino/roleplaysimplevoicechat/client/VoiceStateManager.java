@@ -13,10 +13,7 @@ public class VoiceStateManager {
 
     public void setClientApi(VoicechatClientApi api) { this.clientApi = api; }
     public static VoiceStateManager getInstance() {
-        if (instance == null) {
-            instance = new VoiceStateManager();
-        }
-        return instance;
+        return instance != null ? instance : new VoiceStateManager();
     }
 
     public boolean canCycleState(ClientPlayerEntity player) {
