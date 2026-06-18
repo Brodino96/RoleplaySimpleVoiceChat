@@ -9,6 +9,6 @@ public class ClientEventHandler {
 	public static void initialize() {
 		ClientTickEvents.END_CLIENT_TICK.register(RoleplaySimpleVoicechatClient::tick);
 
-		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(HudIconAtlas.createLazyListener());
+		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(GuiSpriteAtlas.createLazyListener());
 	}
 }

@@ -15,13 +15,13 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.stream.Stream;
 
-public class HudIconAtlas extends SpriteAtlasHolder {
+public class GuiSpriteAtlas extends SpriteAtlasHolder {
 
     private static final Identifier ATLAS_ID = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/atlas/hud_icons.png");
     private static final Identifier FABRIC_ID = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "hud_icon_atlas");
-    private static HudIconAtlas INSTANCE;
+    private static GuiSpriteAtlas INSTANCE;
 
-    private HudIconAtlas() { super(MinecraftClient.getInstance().getTextureManager(), ATLAS_ID, "gui/icons"); }
+    private GuiSpriteAtlas() { super(MinecraftClient.getInstance().getTextureManager(), ATLAS_ID, "gui/icons"); }
 
     @Override
     protected Stream<Identifier> getSprites() {
@@ -36,11 +36,11 @@ public class HudIconAtlas extends SpriteAtlasHolder {
 
     @Override
     public Sprite getSprite(Identifier id) { return super.getSprite(id); }
-    public static HudIconAtlas getInstance() { return INSTANCE; }
+    public static GuiSpriteAtlas getInstance() { return INSTANCE; }
 
-    private static HudIconAtlas getOrCreate() {
+    private static GuiSpriteAtlas getOrCreate() {
         if (INSTANCE == null) {
-            INSTANCE = new HudIconAtlas();
+            INSTANCE = new GuiSpriteAtlas();
         }
         return INSTANCE;
     }
