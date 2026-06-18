@@ -13,13 +13,11 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 @Environment(EnvType.CLIENT)
 public class RoleplaySimpleVoicechatClient implements ClientModInitializer {
 
-    public static final Identifier FALLBACK_SPRITE_ID = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "fallback");
     public static KeyBinding cycleModeKey;
 
     @Override

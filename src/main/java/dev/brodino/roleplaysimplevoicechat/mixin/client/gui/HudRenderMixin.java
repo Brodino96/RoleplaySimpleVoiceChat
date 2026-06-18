@@ -4,7 +4,6 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import de.maxhenkel.voicechat.VoicechatClient;
 import de.maxhenkel.voicechat.voice.client.RenderEvents;
 import dev.brodino.roleplaysimplevoicechat.client.GuiSpriteAtlas;
-import dev.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient;
 import dev.brodino.roleplaysimplevoicechat.client.VoiceStateManager;
 import dev.brodino.roleplaysimplevoicechat.effects.EffectsManager;
 import dev.brodino.roleplaysimplevoicechat.items.ItemManager;

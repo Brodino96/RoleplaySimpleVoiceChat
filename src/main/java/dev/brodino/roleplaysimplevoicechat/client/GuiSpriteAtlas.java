@@ -20,6 +20,7 @@ public class GuiSpriteAtlas extends SpriteAtlasHolder {
 
     private static final Identifier ATLAS_ID = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "textures/atlas/hud_icons.png");
     private static final Identifier FABRIC_ID = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "hud_icon_atlas");
+    private static final Identifier FALLBACK_SPRITE_ID = new Identifier(RoleplaySimpleVoicechat.MOD_ID, "fallback");
     private static GuiSpriteAtlas INSTANCE;
 
     private GuiSpriteAtlas() { super(MinecraftClient.getInstance().getTextureManager(), ATLAS_ID, "gui/icons"); }
@@ -32,12 +33,13 @@ public class GuiSpriteAtlas extends SpriteAtlasHolder {
             set.add(state.getOffSpriteId());
             set.add(state.getDisabledSpriteId());
         }
+        set.add(FALLBACK_SPRITE_ID);
         return set.stream();
     }
 
     @Override
     public Sprite getSprite(Identifier id) { return super.getSprite(id); }
-    public Sprite getFallbackSprite() { return this.getSprite(RoleplaySimpleVoicechatClient.FALLBACK_SPRITE_ID); }
+    public Sprite getFallbackSprite() { return this.getSprite(FALLBACK_SPRITE_ID); }
     public static GuiSpriteAtlas getInstance() { return INSTANCE; }
 
     private static GuiSpriteAtlas getOrCreate() {
