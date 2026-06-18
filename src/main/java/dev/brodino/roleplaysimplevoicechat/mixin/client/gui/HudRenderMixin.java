@@ -48,7 +48,7 @@ public class HudRenderMixin {
 
         ClientPlayerEntity player = this.minecraft.player;
         if (player == null) {
-            return atlas.getSprite(RoleplaySimpleVoicechatClient.FALLBACK_SPRITE_ID);
+            return atlas.getFallbackSprite();
         }
 
         VoiceStateManager manager = VoiceStateManager.getInstance();

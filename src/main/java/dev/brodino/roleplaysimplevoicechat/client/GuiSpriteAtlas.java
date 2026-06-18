@@ -37,6 +37,7 @@ public class GuiSpriteAtlas extends SpriteAtlasHolder {
 
     @Override
     public Sprite getSprite(Identifier id) { return super.getSprite(id); }
+    public Sprite getFallbackSprite() { return this.getSprite(RoleplaySimpleVoicechatClient.FALLBACK_SPRITE_ID); }
     public static GuiSpriteAtlas getInstance() { return INSTANCE; }
 
     private static GuiSpriteAtlas getOrCreate() {
