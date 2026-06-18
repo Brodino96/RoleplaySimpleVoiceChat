@@ -11,6 +11,7 @@ import net.minecraft.resource.ResourceReloader;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.profiler.Profiler;
 
+import java.util.HashSet;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.stream.Stream;
@@ -25,13 +26,13 @@ public class GuiSpriteAtlas extends SpriteAtlasHolder {
 
     @Override
     protected Stream<Identifier> getSprites() {
-        return Stream.of(
-                VoiceStates.NORMAL.getOnSpriteId(), VoiceStates.NORMAL.getOffSpriteId(), VoiceStates.NORMAL.getDisabledSpriteId(),
-                VoiceStates.WHISPER.getOnSpriteId(), VoiceStates.WHISPER.getOffSpriteId(), VoiceStates.WHISPER.getDisabledSpriteId(),
-                VoiceStates.SHOUTING.getOnSpriteId(), VoiceStates.SHOUTING.getOffSpriteId(), VoiceStates.SHOUTING.getDisabledSpriteId(),
-                VoiceStates.EXTENDED.getOnSpriteId(), VoiceStates.EXTENDED.getOffSpriteId(), VoiceStates.EXTENDED.getDisabledSpriteId(),
-                RoleplaySimpleVoicechatClient.FALLBACK_SPRITE_ID
-        );
+        HashSet<Identifier> set = new HashSet<>();
+        for (VoiceStates state : VoiceStates.values()) {
+            set.add(state.getOnSpriteId());
+            set.add(state.getOffSpriteId());
+            set.add(state.getDisabledSpriteId());
+        }
+        return set.stream();
     }
 
     @Override
