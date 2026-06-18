@@ -24,11 +24,11 @@ public class VoiceStateManager {
     }
 
     public VoiceStates cycleState() {
-        this.currentState = currentState.next();
+        this.currentState = this.currentState.next();
         return this.currentState;
     }
 
-    public VoiceStates getCurrentState() { return currentState; }
+    public VoiceStates getCurrentState() { return this.currentState; }
 
     public boolean isTalking() { return this.clientApi != null && this.clientApi.isTalking(); }
     public boolean isMuted() { return this.clientApi != null && this.clientApi.isMuted() && !this.isPushToTalk();  }
