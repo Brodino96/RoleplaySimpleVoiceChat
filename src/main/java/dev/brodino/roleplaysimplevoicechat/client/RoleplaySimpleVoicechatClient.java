@@ -9,10 +9,14 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 @Environment(EnvType.CLIENT)
@@ -32,6 +36,13 @@ public class RoleplaySimpleVoicechatClient implements ClientModInitializer {
         ));
 
         ClientEventHandler.initialize();
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+            new Identifier(RoleplaySimpleVoicechat.MOD_ID, "fancy_backgrounds"),
+            FabricLoader.getInstance().getModContainer(RoleplaySimpleVoicechat.MOD_ID).orElseThrow(),
+			"Fancy Backgrounds",
+            ResourcePackActivationType.DEFAULT_ENABLED
+        );
     }
 
     public static void tick(MinecraftClient client) {

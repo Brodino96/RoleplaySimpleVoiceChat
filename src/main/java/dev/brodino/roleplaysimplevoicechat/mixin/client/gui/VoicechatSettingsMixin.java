@@ -4,7 +4,7 @@ import de.maxhenkel.voicechat.gui.VoiceChatScreenBase;
 import de.maxhenkel.voicechat.gui.VoiceChatSettingsScreen;
 import de.maxhenkel.voicechat.gui.widgets.KeybindButton;
 import dev.brodino.roleplaysimplevoicechat.client.RoleplaySimpleVoicechatClient;
-import dev.brodino.roleplaysimplevoicechat.client.SavingKeybindButton;
+import dev.brodino.roleplaysimplevoicechat.client.gui.SavingKeybindButton;
 import dev.brodino.roleplaysimplevoicechat.mixin.client.gui.accessors.ScreenAccessor;
 import dev.brodino.roleplaysimplevoicechat.mixin.client.gui.accessors.VoicechatScreenAccessor;
 import net.minecraft.client.gui.Element;

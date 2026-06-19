@@ -1,4 +1,4 @@
-package dev.brodino.roleplaysimplevoicechat.client;
+package dev.brodino.roleplaysimplevoicechat.client.gui;
 
 import dev.brodino.roleplaysimplevoicechat.RoleplaySimpleVoicechat;
 import dev.brodino.roleplaysimplevoicechat.shared.VoiceStates;
@@ -52,9 +52,7 @@ public class GuiSpriteAtlas extends SpriteAtlasHolder {
     public static IdentifiableResourceReloadListener createLazyListener() {
         return new IdentifiableResourceReloadListener() {
             @Override
-            public Identifier getFabricId() {
-                return FABRIC_ID;
-            }
+            public Identifier getFabricId() { return FABRIC_ID; }
 
             @Override
             public CompletableFuture<Void> reload(ResourceReloader.Synchronizer s, ResourceManager m, Profiler p, Profiler ap, Executor pe, Executor ae) {
