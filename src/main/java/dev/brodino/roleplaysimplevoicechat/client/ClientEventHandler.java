@@ -1,5 +1,6 @@
 package dev.brodino.roleplaysimplevoicechat.client;
 
+import dev.brodino.roleplaysimplevoicechat.client.gui.GuiSpriteAtlas;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resource.ResourceType;

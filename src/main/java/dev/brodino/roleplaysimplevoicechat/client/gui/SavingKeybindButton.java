@@ -1,4 +1,4 @@
-package dev.brodino.roleplaysimplevoicechat.client;
+package dev.brodino.roleplaysimplevoicechat.client.gui;
 
 import de.maxhenkel.voicechat.gui.widgets.KeybindButton;
 import net.minecraft.client.option.KeyBinding;
